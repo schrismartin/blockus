@@ -9,24 +9,12 @@ let boardView = BoardView(board: board)
 
 PlaygroundPage.current.liveView = boardView
 
-let piece = Piece(
-    string: """
-            XXX
-            XX
-             X
-            """,
-    color: .red
-)
-
-let bluePiece = Piece(
-    string: """
-             X
-             X
-            XX
-            """,
-    color: .blue
-)
+let piece = Piece(config: .longL, color: .red)
+let rotatedPiece = Piece(config: .longL, color: .blue)
+    .rotated(by: .half, direction: .clockwise)
+.rotated(by: .half, direction: .clockwise)
 
 boardView.board = try board
     .place(piece: piece, at: Coordinate(x: 5, y: 5))
-    .place(piece: bluePiece, at: Coordinate(x: 0, y: 0))
+    .place(piece: rotatedPiece, at: Coordinate(x: 10, y: 5))
+    .place(piece: rotatedPiece, at: Coordinate(x: 5, y: 10))
