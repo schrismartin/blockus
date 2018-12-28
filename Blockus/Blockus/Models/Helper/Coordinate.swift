@@ -87,3 +87,29 @@ extension Coordinate {
         }
     }
 }
+
+extension Coordinate {
+    
+    public func rotated(by amount: DegreeAmount, direction: Direction, about point: Coordinate) -> Coordinate {
+        
+        return Coordinate.rotate(self, by: amount, direction: direction, about: point)
+    }
+    
+    public static func rotate(_ coordinate: Coordinate, by amount: DegreeAmount, direction: Direction, about origin: Coordinate) -> Coordinate {
+        
+        switch amount {
+        case .quarter:
+            
+            let theta = amount.angle(direction: direction)
+            
+            let x = (cos(theta) * Double(coordinate.x - origin.x) - sin(theta) * Double(coordinate.y - origin.y) + Double(origin.x))
+            let y = (sin(theta) * Double(coordinate.x - origin.x) - cos(theta) * Double(coordinate.y - origin.y) + Double(origin.y))
+            
+            return Coordinate(x: Int(round(x)), y: Int(round(y)))
+            
+        case .half:
+            let quarter = rotate(coordinate, by: .quarter, direction: direction, about: origin)
+            return rotate(quarter, by: .quarter, direction: direction, about: origin)
+        }
+    }
+}

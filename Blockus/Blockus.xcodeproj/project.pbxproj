@@ -20,6 +20,9 @@
 		B41D59FA21D3469F0009A216 /* Axis.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41D59F921D3469F0009A216 /* Axis.swift */; };
 		B41D59FC21D346B90009A216 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41D59FB21D346B90009A216 /* Board.swift */; };
 		B41D59FE21D347080009A216 /* Piece.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41D59FD21D347080009A216 /* Piece.swift */; };
+		B4BBF83521D5CC8D008643B2 /* PieceConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4BBF83421D5CC8D008643B2 /* PieceConfiguration.swift */; };
+		B4BBF83721D5D1AD008643B2 /* Direction.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4BBF83621D5D1AD008643B2 /* Direction.swift */; };
+		B4BBF83921D5D1C6008643B2 /* DegreeAmount.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4BBF83821D5D1C6008643B2 /* DegreeAmount.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +52,9 @@
 		B41D59F921D3469F0009A216 /* Axis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Axis.swift; sourceTree = "<group>"; };
 		B41D59FB21D346B90009A216 /* Board.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
 		B41D59FD21D347080009A216 /* Piece.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Piece.swift; sourceTree = "<group>"; };
+		B4BBF83421D5CC8D008643B2 /* PieceConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieceConfiguration.swift; sourceTree = "<group>"; };
+		B4BBF83621D5D1AD008643B2 /* Direction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Direction.swift; sourceTree = "<group>"; };
+		B4BBF83821D5D1C6008643B2 /* DegreeAmount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DegreeAmount.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,26 +128,9 @@
 				B41D5A0121D348270009A216 /* Helper */,
 				B41D59EF21D345E60009A216 /* Tile.swift */,
 				B41D59FB21D346B90009A216 /* Board.swift */,
-				B41D59FD21D347080009A216 /* Piece.swift */,
+				B4BBF83121D5CA0A008643B2 /* Piece */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		B41D59ED21D345D20009A216 /* Color */ = {
-			isa = PBXGroup;
-			children = (
-				B41D59E921D345A10009A216 /* Color.swift */,
-				B41D59EB21D345B30009A216 /* UIColor+Color.swift */,
-			);
-			path = Color;
-			sourceTree = "<group>";
-		};
-		B41D59F321D346030009A216 /* Coordinate */ = {
-			isa = PBXGroup;
-			children = (
-				B41D59F121D345FF0009A216 /* Coordinate.swift */,
-			);
-			path = Coordinate;
 			sourceTree = "<group>";
 		};
 		B41D59F621D346440009A216 /* Extensions */ = {
@@ -152,29 +141,16 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		B41D59FF21D348160009A216 /* Size */ = {
-			isa = PBXGroup;
-			children = (
-				B41D59F721D346700009A216 /* Size.swift */,
-			);
-			path = Size;
-			sourceTree = "<group>";
-		};
-		B41D5A0021D3481A0009A216 /* Axis */ = {
-			isa = PBXGroup;
-			children = (
-				B41D59F921D3469F0009A216 /* Axis.swift */,
-			);
-			path = Axis;
-			sourceTree = "<group>";
-		};
 		B41D5A0121D348270009A216 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
-				B41D59ED21D345D20009A216 /* Color */,
-				B41D59F321D346030009A216 /* Coordinate */,
-				B41D59FF21D348160009A216 /* Size */,
-				B41D5A0021D3481A0009A216 /* Axis */,
+				B41D59F721D346700009A216 /* Size.swift */,
+				B41D59F121D345FF0009A216 /* Coordinate.swift */,
+				B41D59E921D345A10009A216 /* Color.swift */,
+				B41D59EB21D345B30009A216 /* UIColor+Color.swift */,
+				B41D59F921D3469F0009A216 /* Axis.swift */,
+				B4BBF83621D5D1AD008643B2 /* Direction.swift */,
+				B4BBF83821D5D1C6008643B2 /* DegreeAmount.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -186,6 +162,15 @@
 				B41D59CD21D342E20009A216 /* Info.plist */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		B4BBF83121D5CA0A008643B2 /* Piece */ = {
+			isa = PBXGroup;
+			children = (
+				B41D59FD21D347080009A216 /* Piece.swift */,
+				B4BBF83421D5CC8D008643B2 /* PieceConfiguration.swift */,
+			);
+			path = Piece;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -305,8 +290,11 @@
 				B41D59EA21D345A10009A216 /* Color.swift in Sources */,
 				B41D59F521D346410009A216 /* Int+Convenience.swift in Sources */,
 				B41D59F021D345E60009A216 /* Tile.swift in Sources */,
+				B4BBF83521D5CC8D008643B2 /* PieceConfiguration.swift in Sources */,
 				B41D59F221D345FF0009A216 /* Coordinate.swift in Sources */,
 				B41D59FC21D346B90009A216 /* Board.swift in Sources */,
+				B4BBF83721D5D1AD008643B2 /* Direction.swift in Sources */,
+				B4BBF83921D5D1C6008643B2 /* DegreeAmount.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

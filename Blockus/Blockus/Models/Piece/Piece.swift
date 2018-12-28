@@ -24,19 +24,9 @@ public struct Piece: Settable {
         numberOfPieces = self.coordinates.count
     }
     
-    public init(string: String, color: Color) {
+    public init(config: PieceConfiguration, color: Color) {
         
-        var coordinates = [Coordinate]()
-        
-        let lines = string.split(separator: "\n")
-        for (y, line) in lines.enumerated() {
-            for (x, tile) in line.enumerated() where tile != " " {
-                let coord = Coordinate(x: x, y: y)
-                coordinates.append(coord)
-            }
-        }
-        
-        self.init(coordinates: coordinates, color: color)
+        self.init(coordinates: config.coordinates, color: color)
     }
     
     public static func calculateSize(of coordinates: [Coordinate]) -> Size {
@@ -75,6 +65,19 @@ extension Piece {
         
         let newPiece = piece.setting(path: \Piece.coordinates) { coords in
             Set(coords.map { coord in coord.reflected(on: axis, at: piece.size.center) })
+        }
+        
+        return normalize(newPiece)
+    }
+    
+    public func rotated(by amount: DegreeAmount, direction: Direction) -> Piece {
+        return Piece.rotate(self, by: amount, direction: direction)
+    }
+    
+    public static func rotate(_ piece: Piece, by amount: DegreeAmount, direction: Direction) -> Piece {
+        
+        let newPiece = piece.setting(path: \Piece.coordinates) { coords in
+            Set(coords.map { coord in coord.rotated(by: amount, direction: direction, about: piece.size.topLeft) })
         }
         
         return normalize(newPiece)

@@ -18,6 +18,8 @@ public class BoardView: UIView {
     
     override public func draw(_ rect: CGRect) {
         
+        backgroundColor = .gray
+        
         let context = UIGraphicsGetCurrentContext()
         
         for (coordinate, tile) in board.indexedTiles() {
