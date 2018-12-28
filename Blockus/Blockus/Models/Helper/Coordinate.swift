@@ -95,26 +95,6 @@ extension Coordinate {
         return Coordinate.rotate(self, by: amount, direction: direction, about: point)
     }
     
-//    public static func rotate(_ coordinate: Coordinate, by amount: DegreeAmount, direction: Direction, about point: Coordinate) -> Coordinate {
-//
-//        let pointValue = amount.angle(direction: direction)
-//        let s = sin(pointValue)
-//        let c = cos(pointValue)
-//
-//        let origin = coordinate
-//            .setting(path: \.x) { x in x - point.x }
-//            .setting(path: \.y) { y in y - point.y }
-//
-//        let newPoint = Coordinate(
-//            x: Int(Double(origin.x) * c - Double(origin.y) * s),
-//            y: Int(Double(origin.x) * s + Double(origin.y) * c)
-//        )
-//
-//        return newPoint
-//            .setting(path: \.x) { x in x + point.x }
-//            .setting(path: \.y) { y in y + point.y }
-//    }
-    
     public static func rotate(_ coordinate: Coordinate, by amount: DegreeAmount, direction: Direction, about origin: Coordinate) -> Coordinate {
         
         switch amount {
