@@ -12,8 +12,10 @@ public protocol Configurable {}
 
 extension Configurable {
     
-    public func configured(handler: @escaping (Self) throws -> Self) rethrows -> Self {
+    public func configured(handler: @escaping (inout Self) -> Void) -> Self {
         
-        return try handler(self)
+        var mutableSelf = self
+        handler(&mutableSelf)
+        return mutableSelf
     }
 }

@@ -7,8 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B403FBA921D7C823004C352B /* SettableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B403FBA821D7C823004C352B /* SettableTests.swift */; };
+		B403FBAB21D7D0DD004C352B /* ConfigurableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B403FBAA21D7D0DD004C352B /* ConfigurableTests.swift */; };
+		B403FBAE21D7D849004C352B /* IntConvenienceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B403FBAD21D7D849004C352B /* IntConvenienceTests.swift */; };
+		B403FBB021D7D97E004C352B /* SetConvenienceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B403FBAF21D7D97E004C352B /* SetConvenienceTests.swift */; };
+		B403FBB321D7DC83004C352B /* CoordinateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B403FBB221D7DC83004C352B /* CoordinateTests.swift */; };
+		B403FBB621D7F35F004C352B /* SizeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B403FBB521D7F35F004C352B /* SizeTests.swift */; };
 		B41D59D321D342E20009A216 /* Blockus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B41D59C921D342E20009A216 /* Blockus.framework */; };
-		B41D59D821D342E20009A216 /* BlockusTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41D59D721D342E20009A216 /* BlockusTests.swift */; };
 		B41D59DA21D342E20009A216 /* Blockus.h in Headers */ = {isa = PBXBuildFile; fileRef = B41D59CC21D342E20009A216 /* Blockus.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B41D59E521D3432F0009A216 /* Settable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41D59E421D3432F0009A216 /* Settable.swift */; };
 		B41D59EA21D345A10009A216 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41D59E921D345A10009A216 /* Color.swift */; };
@@ -38,11 +43,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B403FBA721D7C822004C352B /* BlockusTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BlockusTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		B403FBA821D7C823004C352B /* SettableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettableTests.swift; sourceTree = "<group>"; };
+		B403FBAA21D7D0DD004C352B /* ConfigurableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurableTests.swift; sourceTree = "<group>"; };
+		B403FBAD21D7D849004C352B /* IntConvenienceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntConvenienceTests.swift; sourceTree = "<group>"; };
+		B403FBAF21D7D97E004C352B /* SetConvenienceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetConvenienceTests.swift; sourceTree = "<group>"; };
+		B403FBB221D7DC83004C352B /* CoordinateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinateTests.swift; sourceTree = "<group>"; };
+		B403FBB521D7F35F004C352B /* SizeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizeTests.swift; sourceTree = "<group>"; };
 		B41D59C921D342E20009A216 /* Blockus.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Blockus.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B41D59CC21D342E20009A216 /* Blockus.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Blockus.h; sourceTree = "<group>"; };
 		B41D59CD21D342E20009A216 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B41D59D221D342E20009A216 /* BlockusTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BlockusTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		B41D59D721D342E20009A216 /* BlockusTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockusTests.swift; sourceTree = "<group>"; };
 		B41D59D921D342E20009A216 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B41D59E421D3432F0009A216 /* Settable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settable.swift; sourceTree = "<group>"; usesTabs = 0; };
 		B41D59E921D345A10009A216 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
@@ -80,6 +91,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B403FBAC21D7D82C004C352B /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				B403FBA821D7C823004C352B /* SettableTests.swift */,
+				B403FBAA21D7D0DD004C352B /* ConfigurableTests.swift */,
+				B403FBB121D7DC58004C352B /* Extensions */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		B403FBB121D7DC58004C352B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B403FBAD21D7D849004C352B /* IntConvenienceTests.swift */,
+				B403FBAF21D7D97E004C352B /* SetConvenienceTests.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		B403FBB421D7DC86004C352B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B403FBB221D7DC83004C352B /* CoordinateTests.swift */,
+				B403FBB521D7F35F004C352B /* SizeTests.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		B41D59BF21D342E20009A216 = {
 			isa = PBXGroup;
 			children = (
@@ -111,8 +150,10 @@
 		B41D59D621D342E20009A216 /* BlockusTests */ = {
 			isa = PBXGroup;
 			children = (
-				B41D59D721D342E20009A216 /* BlockusTests.swift */,
 				B41D59D921D342E20009A216 /* Info.plist */,
+				B403FBB421D7DC86004C352B /* Model */,
+				B403FBAC21D7D82C004C352B /* Utilities */,
+				B403FBA721D7C822004C352B /* BlockusTests-Bridging-Header.h */,
 			);
 			path = BlockusTests;
 			sourceTree = "<group>";
@@ -245,6 +286,7 @@
 					};
 					B41D59D121D342E20009A216 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1010;
 					};
 				};
 			};
@@ -310,7 +352,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B41D59D821D342E20009A216 /* BlockusTests.swift in Sources */,
+				B403FBB021D7D97E004C352B /* SetConvenienceTests.swift in Sources */,
+				B403FBAB21D7D0DD004C352B /* ConfigurableTests.swift in Sources */,
+				B403FBB621D7F35F004C352B /* SizeTests.swift in Sources */,
+				B403FBAE21D7D849004C352B /* IntConvenienceTests.swift in Sources */,
+				B403FBB321D7DC83004C352B /* CoordinateTests.swift in Sources */,
+				B403FBA921D7C823004C352B /* SettableTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -504,6 +551,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4TD75KA4GE;
 				INFOPLIST_FILE = BlockusTests/Info.plist;
@@ -514,6 +562,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.schrismartin.BlockusTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "BlockusTests/BlockusTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -523,6 +573,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4TD75KA4GE;
 				INFOPLIST_FILE = BlockusTests/Info.plist;
@@ -533,6 +584,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.schrismartin.BlockusTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "BlockusTests/BlockusTests-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

@@ -12,6 +12,15 @@ public struct Coordinate: Hashable, Settable {
     public var x: Int
     public var y: Int
     
+    static let zero = Coordinate(x: 0, y: 0)
+    
+    static func random(in range: Range<Int>) -> Coordinate {
+        return Coordinate(
+            x: Int.random(in: range),
+            y: Int.random(in: range)
+        )
+    }
+    
     public init(x: Int, y: Int) {
         
         self.x = x
