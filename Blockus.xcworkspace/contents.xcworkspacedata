@@ -5,6 +5,6 @@
       location = "group:/Users/schrismartin/workspace/personal/Blockus/Playground.playground">
    </FileRef>
    <FileRef
-      location = "container:Blockus/Blockus.xcodeproj">
+      location = "container:Blockus.xcodeproj">
    </FileRef>
 </Workspace>
