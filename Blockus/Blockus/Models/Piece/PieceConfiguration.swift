@@ -51,4 +51,28 @@ extension PieceConfiguration {
     public static let awkward: PieceConfiguration = " XX\nXX\n X"
     public static let plus: PieceConfiguration = " X \nXXX\n X "
     public static let mummy: PieceConfiguration = " X\nXXXX"
+    
+    public static let allPieces: [PieceConfiguration] = [
+        .one,
+        .two,
+        .corner,
+        .three,
+        .square,
+        .finger,
+        .four,
+        .smallL,
+        .zag,
+        .longL,
+        .longFinger,
+        .bigL,
+        .longZag,
+        .wave,
+        .five,
+        .thumb,
+        .stairs,
+        .c,
+        .awkward,
+        .plus,
+        .mummy,
+    ]
 }

@@ -20,6 +20,8 @@
 		B41D59FA21D3469F0009A216 /* Axis.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41D59F921D3469F0009A216 /* Axis.swift */; };
 		B41D59FC21D346B90009A216 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41D59FB21D346B90009A216 /* Board.swift */; };
 		B41D59FE21D347080009A216 /* Piece.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41D59FD21D347080009A216 /* Piece.swift */; };
+		B4B2731421D66AFA0094EB09 /* Set+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B2731321D66AFA0094EB09 /* Set+Convenience.swift */; };
+		B4B2731621D6721C0094EB09 /* Configurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B2731521D6721C0094EB09 /* Configurable.swift */; };
 		B4BBF83521D5CC8D008643B2 /* PieceConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4BBF83421D5CC8D008643B2 /* PieceConfiguration.swift */; };
 		B4BBF83721D5D1AD008643B2 /* Direction.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4BBF83621D5D1AD008643B2 /* Direction.swift */; };
 		B4BBF83921D5D1C6008643B2 /* DegreeAmount.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4BBF83821D5D1C6008643B2 /* DegreeAmount.swift */; };
@@ -52,6 +54,8 @@
 		B41D59F921D3469F0009A216 /* Axis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Axis.swift; sourceTree = "<group>"; };
 		B41D59FB21D346B90009A216 /* Board.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
 		B41D59FD21D347080009A216 /* Piece.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Piece.swift; sourceTree = "<group>"; };
+		B4B2731321D66AFA0094EB09 /* Set+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Set+Convenience.swift"; sourceTree = "<group>"; };
+		B4B2731521D6721C0094EB09 /* Configurable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configurable.swift; sourceTree = "<group>"; };
 		B4BBF83421D5CC8D008643B2 /* PieceConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieceConfiguration.swift; sourceTree = "<group>"; };
 		B4BBF83621D5D1AD008643B2 /* Direction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Direction.swift; sourceTree = "<group>"; };
 		B4BBF83821D5D1C6008643B2 /* DegreeAmount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DegreeAmount.swift; sourceTree = "<group>"; };
@@ -117,6 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				B41D59E421D3432F0009A216 /* Settable.swift */,
+				B4B2731521D6721C0094EB09 /* Configurable.swift */,
 				B41D59F621D346440009A216 /* Extensions */,
 			);
 			path = Utilities;
@@ -137,6 +142,7 @@
 			isa = PBXGroup;
 			children = (
 				B41D59F421D346410009A216 /* Int+Convenience.swift */,
+				B4B2731321D66AFA0094EB09 /* Set+Convenience.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -282,6 +288,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B4B2731621D6721C0094EB09 /* Configurable.swift in Sources */,
+				B4B2731421D66AFA0094EB09 /* Set+Convenience.swift in Sources */,
 				B41D59EC21D345B30009A216 /* UIColor+Color.swift in Sources */,
 				B41D59F821D346700009A216 /* Size.swift in Sources */,
 				B41D59FE21D347080009A216 /* Piece.swift in Sources */,
