@@ -32,10 +32,9 @@ public struct Board: Settable, Configurable {
         return grid[coordinate.x][coordinate.y]
     }
     
-    public var coordinates: [Coordinate] {
-        return (0 ..< size.width).flatMap { x in
-            (0 ..< size.height).map { y in Coordinate(x: x, y: y) }
-        }
+    public var coordinates: Coordinates {
+        return Set((0 ..< size.width)
+            .flatMap { x in (0 ..< size.height).setMap { y in Coordinate(x: x, y: y) } })
     }
     
     public func indexedTiles() -> [(coord: Coordinate, tile: Tile)] {

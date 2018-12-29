@@ -23,3 +23,5 @@ extension Settable {
         return setting(path: keyPath, to: modification(self[keyPath: keyPath]))
     }
 }
+
+extension Set: Settable { }

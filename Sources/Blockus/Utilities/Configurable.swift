@@ -19,3 +19,5 @@ extension Configurable {
         return mutableSelf
     }
 }
+
+extension Set: Configurable { }

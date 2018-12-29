@@ -14,6 +14,7 @@ class SizeTests: XCTestCase {
     static let allTests = [
         ("testInitializer", testInitializer),
         ("testRelations", testRelations),
+        ("testInitializationWithNoCoordinates", testInitializationWithNoCoordinates),
         ("testCenterEvenDimensions", testCenterEvenDimensions),
         ("testCenterOddDimensions", testCenterOddDimensions)
     ]
@@ -23,6 +24,21 @@ class SizeTests: XCTestCase {
         let size = Size(width: 10, height: 16)
         XCTAssertEqual(size.height, 16)
         XCTAssertEqual(size.width, 10)
+    }
+    
+    func testInitializationWithCoordinates() {
+        
+        let coordinates: Coordinates = [
+            Coordinate(x: 5, y: 5),
+            Coordinate(x: 24, y: 24)
+        ]
+        
+        XCTAssertEqual(Size(from: coordinates), Size(width: 20, height: 20))
+    }
+    
+    func testInitializationWithNoCoordinates() {
+        
+        XCTAssertEqual(Size(from: []), Size(width: 1, height: 1))
     }
     
     func testRelations() {

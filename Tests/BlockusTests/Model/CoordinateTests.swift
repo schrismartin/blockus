@@ -21,6 +21,9 @@ class CoordinateTests: XCTestCase {
         ("testHalfRotations", testHalfRotations),
         ("testHalfRotationsAreEqualDespiteDirection", testHalfRotationsAreEqualDespiteDirection),
         ("testThreeQuarterRotationsAreEqualToOppositeQuarterRotations", testThreeQuarterRotationsAreEqualToOppositeQuarterRotations),
+        ("testRandomCoordinateInRange", testRandomCoordinateInRange),
+        ("testRandomCoordinateInSize", testRandomCoordinateInSize),
+        ("testDescription", testDescription)
     ]
     
     let base = Coordinate(x: 8, y: -6)
@@ -130,5 +133,29 @@ class CoordinateTests: XCTestCase {
                 coord.rotated(by: .quarter, direction: .counterClockwise, about: pivot)
             )
         }
+    }
+    
+    func testRandomCoordinateInRange() {
+        
+        for _ in 0 ..< 1000 {
+            let coordinate = Coordinate.random(in: -50 ..< 50)
+            XCTAssertTrue((-50 ..< 50).contains(coordinate.x))
+            XCTAssertTrue((-50 ..< 50).contains(coordinate.y))
+        }
+    }
+    
+    func testRandomCoordinateInSize() {
+        
+        for _ in 0 ..< 1000 {
+            let coordinate = Coordinate.random(in: Size(width: 60, height: 80))
+            XCTAssertTrue((0 ..< 60).contains(coordinate.x))
+            XCTAssertTrue((0 ..< 80).contains(coordinate.y))
+        }
+    }
+    
+    func testDescription() {
+        
+        XCTAssertEqual(Coordinate(x: 1, y: 2).description, "(x: 1, y: 2)")
+        XCTAssertEqual(Coordinate(x: -1, y: -2).description, "(x: -1, y: -2)")
     }
 }

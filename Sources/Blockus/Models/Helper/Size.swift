@@ -8,15 +8,30 @@
 
 import Foundation
 
-public struct Size {
+public struct Size: Equatable {
     
     public var width: Int
     public var height: Int
+    
+    public var area: Int {
+        return width * height
+    }
     
     public init(width: Int, height: Int) {
         
         self.width = width
         self.height = height
+    }
+    
+    public init(from coordinates: Coordinates) {
+        
+        let xValues = coordinates.map { $0.x }
+        let yValues = coordinates.map { $0.y }
+        
+        self.init(
+            width: (xValues.max() ?? 0) - (xValues.min() ?? 0) + 1,
+            height: (yValues.max() ?? 0) - (yValues.min() ?? 0) + 1
+        )
     }
     
     public var topLeft: Coordinate { return Coordinate(x: 0, y: 0) }

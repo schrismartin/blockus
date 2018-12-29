@@ -9,6 +9,9 @@ public func allTests() -> [XCTestCaseEntry] {
         testCase(SetConvenienceTests.allTests),
         testCase(ConfigurableTests.allTests),
         testCase(SettableTests.allTests),
+        testCase(SizeTests.allTests),
+        testCase(PieceConfigurationTests.allTests),
+        testCase(PieceTests.allTests),
     ]
 }
 #endif

@@ -10,16 +10,18 @@ import Foundation
 
 public struct PieceConfiguration: ExpressibleByStringLiteral {
     
-    private(set) public var coordinates = [Coordinate]()
+    private(set) public var coordinates = Coordinates()
     
     public init(string: String) {
         
         for (y, line) in string.split(separator: "\n").enumerated() {
             for (x, tile) in line.enumerated() where tile != " " {
                 let coord = Coordinate(x: x, y: y)
-                coordinates.append(coord)
+                coordinates.insert(coord)
             }
         }
+        
+        coordinates = coordinates.normalized()
     }
     
     public init(stringLiteral string: String) {

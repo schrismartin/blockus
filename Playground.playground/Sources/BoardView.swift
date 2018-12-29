@@ -11,7 +11,7 @@ public class BoardView: UIView {
         didSet { setNeedsDisplay() }
     }
     
-    public var auxilaryCoordinates: Set<Coordinate> {
+    public var auxilaryCoordinates: Coordinates {
         didSet { setNeedsDisplay() }
     }
     
@@ -43,7 +43,7 @@ public class BoardView: UIView {
         }
     }
     
-    private func drawGuideTiles(in auxilaryCoordinates: Set<Coordinate>) {
+    private func drawGuideTiles(in auxilaryCoordinates: Coordinates) {
         
         let context = UIGraphicsGetCurrentContext()
         
