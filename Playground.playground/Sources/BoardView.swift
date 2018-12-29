@@ -11,8 +11,13 @@ public class BoardView: UIView {
         didSet { setNeedsDisplay() }
     }
     
+    public var auxilaryCoordinates: Set<Coordinate> {
+        didSet { setNeedsDisplay() }
+    }
+    
     public init(board: Board, frame: CGRect = BoardView.defaultFrame) {
         self.board = board
+        self.auxilaryCoordinates = []
         super.init(frame: frame)
     }
     
@@ -20,12 +25,32 @@ public class BoardView: UIView {
         
         backgroundColor = .gray
         
+        drawPieces(in: board)
+        drawGuideTiles(in: auxilaryCoordinates)
+    }
+    
+    private func drawPieces(in board: Board) {
+        
         let context = UIGraphicsGetCurrentContext()
         
         for (coordinate, tile) in board.indexedTiles() {
             
             let frame = self.rect(for: coordinate, boardSize: board.size)
             let color = tile.color.flatMap(UIColor.color) ?? .lightGray
+            
+            color.setFill()
+            context?.fill(frame)
+        }
+    }
+    
+    private func drawGuideTiles(in auxilaryCoordinates: Set<Coordinate>) {
+        
+        let context = UIGraphicsGetCurrentContext()
+        
+        for coordinate in auxilaryCoordinates {
+            
+            let frame = self.rect(for: coordinate, boardSize: board.size)
+            let color = UIColor.yellow.withAlphaComponent(0.5)
             
             color.setFill()
             context?.fill(frame)

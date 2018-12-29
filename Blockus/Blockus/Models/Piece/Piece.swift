@@ -83,3 +83,26 @@ extension Piece {
         return normalize(newPiece)
     }
 }
+
+extension Piece {
+    
+    public func calculateAvailableMoves() -> Set<Coordinate> {
+        
+        let corners = coordinates.reduce(Set<Coordinate>()) { set, coord in
+            set
+                .inserting(coord.upperLeft)
+                .inserting(coord.upperRight)
+                .inserting(coord.lowerLeft)
+                .inserting(coord.lowerRight)
+        }
+        
+        return coordinates.reduce(corners) { set, coord in
+            set
+                .removing(coord)
+                .removing(coord.above)
+                .removing(coord.below)
+                .removing(coord.left)
+                .removing(coord.right)
+        }
+    }
+}

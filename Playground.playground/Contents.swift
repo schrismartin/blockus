@@ -4,17 +4,27 @@ import UIKit
 import PlaygroundSupport
 import Blockus
 
-var board = Board(size: Size(width: 20, height: 20))
-let boardView = BoardView(board: board)
+PlaygroundPage.current.needsIndefiniteExecution = true
 
-PlaygroundPage.current.liveView = boardView
+let board = Board(size: Size(width: 20, height: 20))
 
-let piece = Piece(config: .longL, color: .red)
-let rotatedPiece = Piece(config: .longL, color: .blue)
-    .rotated(by: .half, direction: .clockwise)
-.rotated(by: .half, direction: .clockwise)
+func drawBoard(forPieceAtIndex index: Int, using board: Board) throws {
 
-boardView.board = try board
-    .place(piece: piece, at: Coordinate(x: 5, y: 5))
-    .place(piece: rotatedPiece, at: Coordinate(x: 10, y: 5))
-    .place(piece: rotatedPiece, at: Coordinate(x: 5, y: 10))
+    let boardView = BoardView(board: board)
+    PlaygroundPage.current.liveView = boardView
+
+    let wrappedIndex = index % PieceConfiguration.allPieces.count
+    let piece = Piece(config: PieceConfiguration.allPieces[wrappedIndex], color: .red)
+
+    boardView.board = try board
+        .place(piece: piece, at: board.size.center)
+
+    boardView.auxilaryCoordinates = Set(piece.calculateAvailableMoves()
+        .map { coord in coord.offset(by: board.size.center) })
+
+    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1)) {
+        try! drawBoard(forPieceAtIndex: index + 1, using: board)
+    }
+}
+
+try drawBoard(forPieceAtIndex: 0, using: board)

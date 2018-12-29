@@ -51,6 +51,11 @@ extension Coordinate {
 
 extension Coordinate {
     
+    public var upperLeft: Coordinate { return Coordinate.upperLeft(of: self) }
+    public var upperRight: Coordinate { return Coordinate.upperRight(of: self) }
+    public var lowerLeft: Coordinate { return Coordinate.lowerLeft(of: self) }
+    public var lowerRight: Coordinate { return Coordinate.lowerRight(of: self) }
+    
     public static func upperLeft(of other: Coordinate) -> Coordinate {
         return above(left(of: other))
     }
@@ -111,5 +116,11 @@ extension Coordinate {
             let quarter = rotate(coordinate, by: .quarter, direction: direction, about: origin)
             return rotate(quarter, by: .quarter, direction: direction, about: origin)
         }
+    }
+}
+
+extension Coordinate: CustomStringConvertible {
+    public var description: String {
+        return "(x: \(x), y: \(y))"
     }
 }

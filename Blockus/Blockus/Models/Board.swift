@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class Board: Settable {
+public struct Board: Settable, Configurable {
     
     private var grid: [[Tile]]
     public let size: Size
