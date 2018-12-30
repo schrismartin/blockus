@@ -43,49 +43,39 @@ public struct Coordinate: Hashable, Settable {
 
 extension Coordinate {
     
-    public var above: Coordinate { return Coordinate.above(self) }
-    public var below: Coordinate { return Coordinate.below(self) }
-    public var left: Coordinate { return Coordinate.left(of: self) }
-    public var right: Coordinate { return Coordinate.right(of: self) }
-    
-    public static func above(_ other: Coordinate) -> Coordinate {
-        return other.setting(path: \Coordinate.y, using: Int.decr)
+    public var above: Coordinate {
+        return setting(path: \Coordinate.y, using: Int.decr)
     }
     
-    public static func below(_ other: Coordinate) -> Coordinate {
-        return other.setting(path: \Coordinate.y, using: Int.incr)
+    public var below: Coordinate {
+        return setting(path: \Coordinate.y, using: Int.incr)
     }
     
-    public static func left(of other: Coordinate) -> Coordinate {
-        return other.setting(path: \Coordinate.x, using: Int.decr)
+    public var left: Coordinate {
+        return setting(path: \Coordinate.x, using: Int.decr)
     }
     
-    public static func right(of other: Coordinate) -> Coordinate {
-        return other.setting(path: \Coordinate.x, using: Int.incr)
+    public var right: Coordinate {
+        return setting(path: \Coordinate.x, using: Int.incr)
     }
 }
 
 extension Coordinate {
     
-    public var upperLeft: Coordinate { return Coordinate.upperLeft(of: self) }
-    public var upperRight: Coordinate { return Coordinate.upperRight(of: self) }
-    public var lowerLeft: Coordinate { return Coordinate.lowerLeft(of: self) }
-    public var lowerRight: Coordinate { return Coordinate.lowerRight(of: self) }
-    
-    public static func upperLeft(of other: Coordinate) -> Coordinate {
-        return above(left(of: other))
+    public var upperLeft: Coordinate {
+        return above.left
     }
     
-    public static func upperRight(of other: Coordinate) -> Coordinate {
-        return above(right(of: other))
+    public var upperRight: Coordinate {
+        return above.right
     }
     
-    public static func lowerLeft(of other: Coordinate) -> Coordinate {
-        return below(left(of: other))
+    public var lowerLeft: Coordinate {
+        return below.left
     }
     
-    public static func lowerRight(of other: Coordinate) -> Coordinate {
-        return below(right(of: other))
+    public var lowerRight: Coordinate {
+        return below.right
     }
 }
 
