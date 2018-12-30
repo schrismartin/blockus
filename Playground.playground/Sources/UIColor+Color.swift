@@ -10,9 +10,9 @@ import UIKit
 import Blockus
 
 extension UIColor {
-    
+
     public static func color(for color: Color) -> UIColor {
-        
+
         switch color {
         case .blue: return .blue
         case .green: return .green

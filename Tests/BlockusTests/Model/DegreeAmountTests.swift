@@ -16,10 +16,10 @@ class DegreeAmountTests: XCTestCase {
 
     func testDegreeAmount() {
         
-        XCTAssertEqual(DegreeAmount.quarter.angle(direction: .clockwise), .pi / 2)
-        XCTAssertEqual(DegreeAmount.quarter.angle(direction: .counterClockwise), (.pi * 3) / 2)
+        XCTAssertEqual(Rotation.quarter.angle(direction: .clockwise), .pi / 2)
+        XCTAssertEqual(Rotation.quarter.angle(direction: .counterClockwise), (.pi * 3) / 2)
         
-        XCTAssertEqual(DegreeAmount.half.angle(direction: .clockwise), .pi)
-        XCTAssertEqual(DegreeAmount.half.angle(direction: .counterClockwise), .pi)
+        XCTAssertEqual(Rotation.half.angle(direction: .clockwise), .pi)
+        XCTAssertEqual(Rotation.half.angle(direction: .counterClockwise), .pi)
     }
 }

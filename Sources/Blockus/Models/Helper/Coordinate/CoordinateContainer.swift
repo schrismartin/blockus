@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol CoordinateContainer: Settable, Configurable {
+public protocol CoordinateContainer: Settable, Configurable {
     
     var coordinates: Coordinates { get set }
     var size: Size { get }
@@ -15,14 +15,41 @@ protocol CoordinateContainer: Settable, Configurable {
 
 extension CoordinateContainer {
     
-    var size: Size {
+    public var size: Size {
         return Size(from: coordinates)
     }
 }
 
 extension CoordinateContainer {
     
-    func normalized() -> Self {
+    func applying(transforms: TransformCollection) -> Self {
+        return transforms.transforms.reduce(self) { container, transform in
+            container.applying(transform: transform)
+        }
+    }
+    
+    func applying(transform: Transform) -> Self {
+        
+        switch transform {
+        case .mirrored(axis: let axis):
+            return self.mirrored(on: axis)
+            
+        case .rotated(amount: let amount):
+            return self.rotated(by: amount)
+        }
+    }
+    
+    func translated(by amount: Coordinate) -> Self {
+        
+        return setting(path: \Self.coordinates) { coords in
+            coords.setMap { coord in coord.offset(by: amount) }
+        }
+    }
+}
+
+extension CoordinateContainer {
+    
+    public func normalized() -> Self {
         
         return self.setting(path: \Self.coordinates) { coordinates in
             
@@ -34,7 +61,7 @@ extension CoordinateContainer {
         }
     }
     
-    func mirrored(on axis: Axis) -> Self {
+    public func mirrored(on axis: Axis) -> Self {
         
         return self.setting(path: \Self.coordinates) { coordinates in
             coordinates
@@ -43,11 +70,11 @@ extension CoordinateContainer {
         }
     }
     
-    func rotated(by amount: DegreeAmount, direction: Direction) -> Self {
+    public func rotated(by amount: Rotation) -> Self {
         
         return self.setting(path: \Self.coordinates) { coordinates in
             coordinates
-                .setMap { coord in coord.rotated(by: amount, direction: direction, about: size.center) }
+                .setMap { coord in coord.rotated(by: amount, about: size.center) }
                 .normalized()
         }
     }

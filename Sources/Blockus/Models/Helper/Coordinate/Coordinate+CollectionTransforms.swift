@@ -10,7 +10,7 @@ import Foundation
 public typealias Coordinates = Set<Coordinate>
 
 extension Set: CoordinateContainer where Element == Coordinate {
-    var coordinates: Coordinates {
+    public var coordinates: Coordinates {
         get { return self }
         set { self = newValue }
     }
