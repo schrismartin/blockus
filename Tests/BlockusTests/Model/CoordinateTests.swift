@@ -19,7 +19,6 @@ class CoordinateTests: XCTestCase {
         ("testClockwiseQuarterRotations", testClockwiseQuarterRotations),
         ("testCounterClockwiseQuarterRotations", testCounterClockwiseQuarterRotations),
         ("testHalfRotations", testHalfRotations),
-        ("testHalfRotationsAreEqualDespiteDirection", testHalfRotationsAreEqualDespiteDirection),
         ("testThreeQuarterRotationsAreEqualToOppositeQuarterRotations", testThreeQuarterRotationsAreEqualToOppositeQuarterRotations),
         ("testRandomCoordinateInRange", testRandomCoordinateInRange),
         ("testRandomCoordinateInSize", testRandomCoordinateInSize),
@@ -70,12 +69,12 @@ class CoordinateTests: XCTestCase {
     func testClockwiseQuarterRotations() {
         
         XCTAssertEqual(
-            base.rotated(by: .quarter, direction: .clockwise, about: .zero),
+            base.rotated(by: .quarter, about: .zero),
             Coordinate(x: 6, y: 8)
         )
         
         XCTAssertEqual(
-            base.rotated(by: .quarter, direction: .clockwise, about: Coordinate(x: 1, y: 1)),
+            base.rotated(by: .quarter, about: Coordinate(x: 1, y: 1)),
             Coordinate(x: 8, y: 8)
         )
     }
@@ -83,12 +82,12 @@ class CoordinateTests: XCTestCase {
     func testCounterClockwiseQuarterRotations() {
         
         XCTAssertEqual(
-            base.rotated(by: .quarter, direction: .counterClockwise, about: .zero),
+            base.rotated(by: .threeQuarters, about: .zero),
             Coordinate(x: -6, y: -8)
         )
         
         XCTAssertEqual(
-            base.rotated(by: .quarter, direction: .counterClockwise, about: Coordinate(x: 1, y: 1)),
+            base.rotated(by: .threeQuarters, about: Coordinate(x: 1, y: 1)),
             Coordinate(x: -6, y: -6)
         )
     }
@@ -96,27 +95,27 @@ class CoordinateTests: XCTestCase {
     func testHalfRotations() {
         
         XCTAssertEqual(
-            base.rotated(by: .half, direction: .counterClockwise, about: .zero),
+            base.rotated(by: .half, about: .zero),
             Coordinate(x: -8, y: 6)
         )
         
         XCTAssertEqual(
-            base.rotated(by: .half, direction: .counterClockwise, about: Coordinate(x: 1, y: 1)),
+            base.rotated(by: .half, about: Coordinate(x: 1, y: 1)),
             Coordinate(x: -6, y: 8)
         )
     }
     
-    func testHalfRotationsAreEqualDespiteDirection() {
+    func testFullRotations() {
         
-        for _ in 0 ..< 10000 {
-            let coord = Coordinate.random(in: -1000 ..< 1000)
-            let pivot = Coordinate.random(in: -1000 ..< 1000)
-            
-            XCTAssertEqual(
-                coord.rotated(by: .half, direction: .clockwise, about: pivot),
-                coord.rotated(by: .half, direction: .counterClockwise, about: pivot)
-            )
-        }
+        XCTAssertEqual(
+            base.rotated(by: .full, about: .zero),
+            base
+        )
+        
+        XCTAssertEqual(
+            base.rotated(by: .full, about: Coordinate(x: 1, y: 1)),
+            base
+        )
     }
     
     func testThreeQuarterRotationsAreEqualToOppositeQuarterRotations() {
@@ -127,10 +126,10 @@ class CoordinateTests: XCTestCase {
             
             XCTAssertEqual(
                 coord
-                    .rotated(by: .quarter, direction: .clockwise, about: pivot)
-                    .rotated(by: .quarter, direction: .clockwise, about: pivot)
-                    .rotated(by: .quarter, direction: .clockwise, about: pivot),
-                coord.rotated(by: .quarter, direction: .counterClockwise, about: pivot)
+                    .rotated(by: .quarter, about: pivot)
+                    .rotated(by: .quarter, about: pivot)
+                    .rotated(by: .quarter, about: pivot),
+                coord.rotated(by: .threeQuarters, about: pivot)
             )
         }
     }

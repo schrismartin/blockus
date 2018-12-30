@@ -10,26 +10,21 @@ import Foundation
 
 public struct Board: Settable, Configurable {
     
-    private var grid: [[Tile]]
     public let size: Size
+    public var pieces: [PlacedPiece]
+    
+    var tiles: [Coordinate: Color] = [:]
     
     public init(size: Size = Size(width: 20, height: 20)) {
         
         self.size = size
-        
-        grid = [[Tile]](
-            repeating: [Tile](
-                repeating: .blank,
-                count: size.width
-            ),
-            count: size.height
-        )
+        self.pieces = []
     }
     
-    public func tile(at coordinate: Coordinate) throws -> Tile {
+    public func tile(at coordinate: Coordinate) throws -> Color? {
         
         try Board.validate(coordinate: coordinate, existsOn: self)
-        return grid[coordinate.x][coordinate.y]
+        return tiles[coordinate]
     }
     
     public var coordinates: Coordinates {
@@ -37,9 +32,10 @@ public struct Board: Settable, Configurable {
             .flatMap { x in (0 ..< size.height).setMap { y in Coordinate(x: x, y: y) } })
     }
     
-    public func indexedTiles() -> [(coord: Coordinate, tile: Tile)] {
-        return grid.enumerated().flatMap { column in
-            column.element.enumerated().map { tile in (Coordinate(x: column.offset, y: tile.offset), tile.element) }
+    func generateTiles(for pieces: [PlacedPiece]) -> [Coordinate: Color] {
+        
+        return pieces.reduce([Coordinate: Color]()) { dict, piece in
+            dict.merging(piece.tiles) { color, _ in color }
         }
     }
 }
@@ -55,36 +51,29 @@ extension Board {
     
     public static func validate(coordinate: Coordinate, isVacantOn board: Board) throws {
         
-        let tile = try board.tile(at: coordinate)
-        switch tile {
-        case .occupied(let color):
+        if let color = try board.tile(at: coordinate) {
             throw Error.itemExists(color: color, coord: coordinate)
-        case .blank:
-            break
         }
     }
 }
 
 extension Board {
     
-    public func placeTile(of color: Color, at coordinate: Coordinate) throws -> Board {
+    public func place(piece: Piece, at coordinate: Coordinate, transforms: TransformCollection = nil) throws -> Board {
         
-        try Board.validate(coordinate: coordinate, existsOn: self)
-        try Board.validate(coordinate: coordinate, isVacantOn: self)
-        return self.setting(path: \.grid[coordinate.x][coordinate.y], to: .occupied(color))
-    }
-    
-    public func remoteTile(at coordinate: Coordinate) throws -> Board {
+        let placedPiece = PlacedPiece(
+            piece: piece,
+            origin: coordinate,
+            transforms: transforms
+        )
         
-        try Board.validate(coordinate: coordinate, existsOn: self)
-        return self.setting(path: \.grid[coordinate.x][coordinate.y], to: .blank)
-    }
-    
-    public func place(piece: Piece, at coordinate: Coordinate) throws -> Board {
+        let tiles = placedPiece.tiles
         
-        return try piece.coordinates
-            .map { $0.offset(by: coordinate) }
-            .reduce(self) { board, coord in try board.placeTile(of: piece.color, at: coord) }
+        try tiles.keys.forEach { coord in try Board.validate(coordinate: coord, isVacantOn: self) }
+        
+        return self
+            .setting(path: \Board.pieces) { pieces in pieces.appending(placedPiece) }
+            .setting(path: \Board.tiles) { tiles in tiles.merging(placedPiece.tiles) { color, _ in color } }
     }
 }
 

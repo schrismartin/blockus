@@ -33,12 +33,6 @@ public struct Coordinate: Hashable, Settable {
         self.x = x
         self.y = y
     }
-    
-    public func offset(by offset: Coordinate) -> Coordinate {
-        return self
-            .setting(path: \.x) { x in x + offset.x }
-            .setting(path: \.y) { y in y + offset.y }
-    }
 }
 
 extension Coordinate {

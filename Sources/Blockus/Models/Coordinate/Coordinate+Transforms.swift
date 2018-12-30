@@ -9,6 +9,12 @@ import Foundation
 
 extension Coordinate {
     
+    public func offset(by offset: Coordinate) -> Coordinate {
+        return self
+            .setting(path: \.x) { x in x + offset.x }
+            .setting(path: \.y) { y in y + offset.y }
+    }
+    
     public func reflected(on axis: Axis, at point: Coordinate) -> Coordinate {
         
         switch axis {
@@ -22,12 +28,12 @@ extension Coordinate {
         }
     }
     
-    public func rotated(by amount: DegreeAmount, direction: Direction, about origin: Coordinate) -> Coordinate {
+    public func rotated(by amount: Rotation, about origin: Coordinate) -> Coordinate {
         
         switch amount {
-        case .quarter:
+        case .quarter, .threeQuarters:
             
-            let theta = amount.angle(direction: direction)
+            let theta = amount.angle
             
             let x = (cos(theta) * Double(self.x - origin.x) - sin(theta) * Double(self.y - origin.y) + Double(origin.x))
             let y = (sin(theta) * Double(self.x - origin.x) - cos(theta) * Double(self.y - origin.y) + Double(origin.y))
@@ -35,8 +41,11 @@ extension Coordinate {
             return Coordinate(x: Int(round(x)), y: Int(round(y)))
             
         case .half:
-            let quarter = rotated(by: .quarter, direction: direction, about: origin)
-            return quarter.rotated(by: .quarter, direction: direction, about: origin)
+            let quarter = rotated(by: .quarter, about: origin)
+            return quarter.rotated(by: .quarter, about: origin)
+            
+        case .full:
+            return self
         }
     }
 }
