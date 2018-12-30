@@ -9,6 +9,12 @@ import Foundation
 
 extension Coordinate {
     
+    public func offset(by offset: Coordinate) -> Coordinate {
+        return self
+            .setting(path: \.x) { x in x + offset.x }
+            .setting(path: \.y) { y in y + offset.y }
+    }
+    
     public func reflected(on axis: Axis, at point: Coordinate) -> Coordinate {
         
         switch axis {

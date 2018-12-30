@@ -16,7 +16,6 @@ class CoordinatesTests: XCTestCase {
         ("testQuarterRotationClockwise", testQuarterRotationClockwise),
         ("testQuarterRotationCounterClockwise", testQuarterRotationCounterClockwise),
         ("testHalfRotation", testHalfRotation),
-        ("testHalfRotationIsEqualFromBothSides", testHalfRotationIsEqualFromBothSides),
         ("testVerticalMirror", testVerticalMirror),
         ("testHorizontalMirror", testHorizontalMirror),
         ("testHorizontalMirrorIsVerticalMirroredHalfRotation", testHorizontalMirrorIsVerticalMirroredHalfRotation),
@@ -61,7 +60,7 @@ class CoordinatesTests: XCTestCase {
             """
         ).coordinates
         
-        XCTAssertEqual(base.rotated(by: .quarter, direction: .clockwise), expected)
+        XCTAssertEqual(base.rotated(by: .quarter), expected)
     }
     
     func testQuarterRotationCounterClockwise() {
@@ -74,7 +73,7 @@ class CoordinatesTests: XCTestCase {
             """
         ).coordinates
         
-        XCTAssertEqual(base.rotated(by: .quarter, direction: .counterClockwise), expected)
+        XCTAssertEqual(base.rotated(by: .threeQuarters), expected)
     }
     
     func testHalfRotation() {
@@ -87,21 +86,7 @@ class CoordinatesTests: XCTestCase {
             """
         ).coordinates
         
-        XCTAssertEqual(base.rotated(by: .half, direction: .counterClockwise), expected)
-    }
-    
-    func testHalfRotationIsEqualFromBothSides() {
-        
-        for _ in 0 ..< 1000 {
-            let randomShape = (0 ..< 6).reduce(Coordinates()) { set, _ in
-                set.inserting(.random(in: 0 ..< 3))
-            }
-            
-            XCTAssertEqual(
-                randomShape.rotated(by: .half, direction: .clockwise),
-                randomShape.rotated(by: .half, direction: .counterClockwise)
-            )
-        }
+        XCTAssertEqual(base.rotated(by: .half), expected)
     }
     
     func testVerticalMirror() {
@@ -138,7 +123,7 @@ class CoordinatesTests: XCTestCase {
             }
             
             XCTAssertEqual(
-                randomShape.rotated(by: .half, direction: .clockwise).mirrored(on: .vertical),
+                randomShape.rotated(by: .half).mirrored(on: .vertical),
                 randomShape.mirrored(on: .horizontal)
             )
         }
@@ -152,7 +137,7 @@ class CoordinatesTests: XCTestCase {
             }
             
             XCTAssertEqual(
-                randomShape.rotated(by: .half, direction: .clockwise).mirrored(on: .horizontal),
+                randomShape.rotated(by: .half).mirrored(on: .horizontal),
                 randomShape.mirrored(on: .vertical)
             )
         }

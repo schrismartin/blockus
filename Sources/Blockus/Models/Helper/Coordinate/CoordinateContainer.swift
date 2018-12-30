@@ -39,10 +39,10 @@ extension CoordinateContainer {
         }
     }
     
-    func translated(by amount: Coordinate) -> Self {
+    func offset(by offset: Coordinate) -> Self {
         
         return setting(path: \Self.coordinates) { coords in
-            coords.setMap { coord in coord.offset(by: amount) }
+            coords.setMap { coord in coord.offset(by: offset) }
         }
     }
 }

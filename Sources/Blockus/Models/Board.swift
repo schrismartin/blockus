@@ -56,7 +56,7 @@ public struct PlacedPiece {
         
         return piece.coordinates
             .applying(transforms: transforms)
-            .translated(by: origin)
+            .offset(by: origin)
             .reduce([Coordinate: Color]()) { $0.inserting(value: piece.color, at: $1) }
     }
 }

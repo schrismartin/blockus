@@ -11,6 +11,8 @@ let board = Board(size: Size(width: 20, height: 20))
 let boardView = BoardView(board: board)
 PlaygroundPage.current.liveView = boardView
 
+// MARK: - Design 1
+
 boardView.board = try board.place(
     piece: Piece(config: .bigL, color: .red),
     at: Coordinate(x: 7, y: 8),
@@ -35,4 +37,33 @@ boardView.board = try boardView.board.place(
     at: Coordinate(x: 9, y: 8),
     transforms: TransformCollection()
         .rotated(amount: .half)
+)
+
+// MARK: - Design 2
+
+boardView.board = try boardView.board.place(
+    piece: Piece(config: .bigL, color: .blue),
+    at: Coordinate(x: 7, y: 2),
+    transforms: TransformCollection()
+)
+
+boardView.board = try boardView.board.place(
+    piece: Piece(config: .bigL, color: .green),
+    at: Coordinate(x: 8, y: 1),
+    transforms: TransformCollection()
+        .rotated(amount: .half)
+)
+
+boardView.board = try boardView.board.place(
+    piece: Piece(config: .corner, color: .red),
+    at: Coordinate(x: 8, y: 2),
+    transforms: TransformCollection()
+        .rotated(amount: .threeQuarters)
+)
+
+boardView.board = try boardView.board.place(
+    piece: Piece(config: .one, color: .yellow),
+    at: Coordinate(x: 9, y: 3),
+    transforms: TransformCollection()
+        .rotated(amount: .threeQuarters)
 )
