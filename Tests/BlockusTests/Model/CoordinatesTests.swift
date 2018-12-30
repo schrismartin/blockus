@@ -142,4 +142,19 @@ class CoordinatesTests: XCTestCase {
             )
         }
     }
+    
+    func testApplicationOfTransforms() {
+        
+        let transforms = TransformCollection
+            .mirrored(on: .horizontal)
+            .rotated(amount: .full)
+            .mirrored(on: .horizontal)
+            .rotated(amount: .half)
+            .mirrored(on: .vertical)
+            .rotated(amount: .quarter)
+            .rotated(amount: .quarter)
+            .mirrored(on: .vertical)
+        
+        XCTAssertEqual(base.applying(transforms: transforms), base)
+    }
 }

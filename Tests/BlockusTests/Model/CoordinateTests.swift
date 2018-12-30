@@ -105,6 +105,19 @@ class CoordinateTests: XCTestCase {
         )
     }
     
+    func testFullRotations() {
+        
+        XCTAssertEqual(
+            base.rotated(by: .full, about: .zero),
+            base
+        )
+        
+        XCTAssertEqual(
+            base.rotated(by: .full, about: Coordinate(x: 1, y: 1)),
+            base
+        )
+    }
+    
     func testThreeQuarterRotationsAreEqualToOppositeQuarterRotations() {
         
         for _ in 0 ..< 10000 {

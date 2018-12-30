@@ -8,59 +8,6 @@
 
 import Foundation
 
-public struct TransformCollection: Settable {
-    
-    var transforms: [Transform]
-    
-    public func mirrored(on axis: Axis) -> TransformCollection {
-        return adding(.mirrored(axis: axis))
-    }
-    
-    public func rotated(amount: Rotation) -> TransformCollection {
-        return adding(.rotated(amount: amount))
-    }
-    
-    func adding(_ transform: Transform) -> TransformCollection {
-        return self.setting(path: \TransformCollection.transforms) { transforms in
-            transforms.appending(transform)
-        }
-    }
-}
-
-extension TransformCollection: ExpressibleByArrayLiteral {
-    
-    public init(arrayLiteral elements: Transform...) {
-        self.transforms = elements
-    }
-}
-
-public enum Transform {
-    case mirrored(axis: Axis)
-    case rotated(amount: Rotation)
-}
-
-public struct PlacedPiece {
-    
-    public var piece: Piece
-    public var origin: Coordinate
-    public var transforms: TransformCollection
-    
-    init(piece: Piece, origin: Coordinate, transforms: TransformCollection) {
-        
-        self.piece = piece
-        self.origin = origin
-        self.transforms = transforms
-    }
-    
-    var tiles: [Coordinate: Color] {
-        
-        return piece.coordinates
-            .applying(transforms: transforms)
-            .offset(by: origin)
-            .reduce([Coordinate: Color]()) { $0.inserting(value: piece.color, at: $1) }
-    }
-}
-
 public struct Board: Settable, Configurable {
     
     public let size: Size
@@ -112,7 +59,7 @@ extension Board {
 
 extension Board {
     
-    public func place(piece: Piece, at coordinate: Coordinate, transforms: TransformCollection = []) throws -> Board {
+    public func place(piece: Piece, at coordinate: Coordinate, transforms: TransformCollection = nil) throws -> Board {
         
         let placedPiece = PlacedPiece(
             piece: piece,

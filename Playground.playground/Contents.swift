@@ -16,27 +16,25 @@ PlaygroundPage.current.liveView = boardView
 boardView.board = try board.place(
     piece: Piece(config: .bigL, color: .red),
     at: Coordinate(x: 7, y: 8),
-    transforms: TransformCollection()
+    transforms: nil
 )
 
 boardView.board = try boardView.board.place(
     piece: Piece(config: .bigL, color: .green),
     at: Coordinate(x: 6, y: 9),
-    transforms: TransformCollection()
+    transforms: nil
 )
 
 boardView.board = try boardView.board.place(
     piece: Piece(config: .bigL, color: .blue),
     at: Coordinate(x: 8, y: 9),
-    transforms: TransformCollection()
-        .rotated(amount: .half)
+    transforms: .rotated(amount: .half)
 )
 
 boardView.board = try boardView.board.place(
     piece: Piece(config: .bigL, color: .yellow),
     at: Coordinate(x: 9, y: 8),
-    transforms: TransformCollection()
-        .rotated(amount: .half)
+    transforms: .rotated(amount: .half)
 )
 
 // MARK: - Design 2
@@ -44,26 +42,23 @@ boardView.board = try boardView.board.place(
 boardView.board = try boardView.board.place(
     piece: Piece(config: .bigL, color: .blue),
     at: Coordinate(x: 7, y: 2),
-    transforms: TransformCollection()
+    transforms: nil
 )
 
 boardView.board = try boardView.board.place(
     piece: Piece(config: .bigL, color: .green),
     at: Coordinate(x: 8, y: 1),
-    transforms: TransformCollection()
-        .rotated(amount: .half)
+    transforms: .rotated(amount: .half)
 )
 
 boardView.board = try boardView.board.place(
     piece: Piece(config: .corner, color: .red),
     at: Coordinate(x: 8, y: 2),
-    transforms: TransformCollection()
-        .rotated(amount: .threeQuarters)
+    transforms: .rotated(amount: .threeQuarters)
 )
 
 boardView.board = try boardView.board.place(
     piece: Piece(config: .one, color: .yellow),
     at: Coordinate(x: 9, y: 3),
-    transforms: TransformCollection()
-        .rotated(amount: .threeQuarters)
+    transforms: .rotated(amount: .threeQuarters)
 )
