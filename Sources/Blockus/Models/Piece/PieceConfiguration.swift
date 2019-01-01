@@ -21,7 +21,7 @@ public struct PieceConfiguration: ExpressibleByStringLiteral {
             }
         }
         
-        coordinates = coordinates.normalized()
+        coordinates = normalize(coordinates)
     }
     
     public init(stringLiteral string: String) {

@@ -20,6 +20,7 @@ class CoordinatesTests: XCTestCase {
         ("testHorizontalMirror", testHorizontalMirror),
         ("testHorizontalMirrorIsVerticalMirroredHalfRotation", testHorizontalMirrorIsVerticalMirroredHalfRotation),
         ("testVerticalMirrorIsHorizontalMirroredHalfRotation", testVerticalMirrorIsHorizontalMirroredHalfRotation),
+        ("testAvailableMoveCalculation", testAvailableMoveCalculation),
     ]
     
     let base = PieceConfiguration(string:
@@ -33,7 +34,7 @@ class CoordinatesTests: XCTestCase {
     func testNormalized() {
         
         XCTAssertEqual(
-            base.normalized(),
+            normalize(base),
             [
                 Coordinate(x: 0, y: 0),
                 Coordinate(x: 1, y: 0),
@@ -47,7 +48,7 @@ class CoordinatesTests: XCTestCase {
     
     func testNormalizedWithNoCoordinates() {
         
-        XCTAssertEqual(Coordinates().normalized(), [])
+        XCTAssertEqual(normalize(Coordinates()), [])
     }
     
     func testQuarterRotationClockwise() {
@@ -60,7 +61,7 @@ class CoordinatesTests: XCTestCase {
             """
         ).coordinates
         
-        XCTAssertEqual(base.rotated(by: .quarter), expected)
+        XCTAssertEqual(rotate(base, by: .quarter), expected)
     }
     
     func testQuarterRotationCounterClockwise() {
@@ -73,7 +74,7 @@ class CoordinatesTests: XCTestCase {
             """
         ).coordinates
         
-        XCTAssertEqual(base.rotated(by: .threeQuarters), expected)
+        XCTAssertEqual(rotate(base, by: .threeQuarters), expected)
     }
     
     func testHalfRotation() {
@@ -86,7 +87,7 @@ class CoordinatesTests: XCTestCase {
             """
         ).coordinates
         
-        XCTAssertEqual(base.rotated(by: .half), expected)
+        XCTAssertEqual(rotate(base, by: .half), expected)
     }
     
     func testVerticalMirror() {
@@ -99,7 +100,7 @@ class CoordinatesTests: XCTestCase {
             """
         ).coordinates
         
-        XCTAssertEqual(base.mirrored(on: .vertical), expected)
+        XCTAssertEqual(mirror(base, on: .vertical), expected)
     }
     
     func testHorizontalMirror() {
@@ -112,7 +113,7 @@ class CoordinatesTests: XCTestCase {
             """
         ).coordinates
         
-        XCTAssertEqual(base.mirrored(on: .horizontal), expected)
+        XCTAssertEqual(mirror(base, on: .horizontal), expected)
     }
     
     func testHorizontalMirrorIsVerticalMirroredHalfRotation() {
@@ -123,8 +124,8 @@ class CoordinatesTests: XCTestCase {
             }
             
             XCTAssertEqual(
-                randomShape.rotated(by: .half).mirrored(on: .vertical),
-                randomShape.mirrored(on: .horizontal)
+                mirror(rotate(randomShape, by: .half), on: .vertical),
+                mirror(randomShape, on: .horizontal)
             )
         }
     }
@@ -137,8 +138,9 @@ class CoordinatesTests: XCTestCase {
             }
             
             XCTAssertEqual(
-                randomShape.rotated(by: .half).mirrored(on: .horizontal),
-                randomShape.mirrored(on: .vertical)
+                
+                mirror(rotate(randomShape, by: .half), on: .horizontal),
+                mirror(randomShape, on: .vertical)
             )
         }
     }
@@ -156,5 +158,33 @@ class CoordinatesTests: XCTestCase {
             .mirrored(on: .vertical)
         
         XCTAssertEqual(base.applying(transforms: transforms), base)
+    }
+    
+    func testAvailableMoveCalculation() {
+        
+        let threePiece = Piece(config: .three, color: .blue)
+        XCTAssertEqual(
+            threePiece.coordinates.availableMoves,
+            [
+                Coordinate(x: -1, y: -1),
+                Coordinate(x: -1, y: 1),
+                Coordinate(x: 3, y: -1),
+                Coordinate(x: 3, y: 1)
+            ]
+        )
+        
+        let stairs = Piece(config: .stairs, color: .blue)
+        XCTAssertEqual(
+            stairs.coordinates.availableMoves,
+            [
+                Coordinate(x: 0, y: -1),
+                Coordinate(x: 3, y: -1),
+                Coordinate(x: -1, y: 0),
+                Coordinate(x: -1, y: 3),
+                Coordinate(x: 1, y: 3),
+                Coordinate(x: 2, y: 2),
+                Coordinate(x: 3, y: 1)
+            ]
+        )
     }
 }

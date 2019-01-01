@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct Piece: CoordinateContainer {
+public struct Piece {
     
     public var coordinates: Coordinates
     public let size: Size
@@ -36,28 +36,5 @@ public struct Piece: CoordinateContainer {
     public init(config: PieceConfiguration, color: Color) {
         
         self.init(coordinates: config.coordinates, color: color)
-    }
-}
-
-extension Piece {
-    
-    public func calculateAvailableMoves() -> Coordinates {
-        
-        let corners = coordinates.reduce(Coordinates()) { set, coord in
-            set
-                .inserting(coord.upperLeft)
-                .inserting(coord.upperRight)
-                .inserting(coord.lowerLeft)
-                .inserting(coord.lowerRight)
-        }
-        
-        return coordinates.reduce(corners) { set, coord in
-            set
-                .removing(coord)
-                .removing(coord.above)
-                .removing(coord.below)
-                .removing(coord.left)
-                .removing(coord.right)
-        }
     }
 }

@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct Board: Settable, Configurable {
+public struct Board: CoordinateContainer {
     
     public let size: Size
     public var pieces: [PlacedPiece]
@@ -28,8 +28,9 @@ public struct Board: Settable, Configurable {
     }
     
     public var coordinates: Coordinates {
-        return Set((0 ..< size.width)
-            .flatMap { x in (0 ..< size.height).setMap { y in Coordinate(x: x, y: y) } })
+        return pieces
+            .flatMap { $0.coordinates }
+            .setMap { $0 }
     }
     
     func generateTiles(for pieces: [PlacedPiece]) -> [Coordinate: Color] {

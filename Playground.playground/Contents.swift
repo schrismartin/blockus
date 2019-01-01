@@ -62,3 +62,5 @@ boardView.board = try boardView.board.place(
     at: Coordinate(x: 9, y: 3),
     transforms: .rotated(amount: .threeQuarters)
 )
+
+boardView.auxilaryCoordinates = boardView.board.availableMoves
