@@ -25,10 +25,25 @@ public class BoardView: UIView {
 
         backgroundColor = .gray
 
+        drawGrid(size: board.size)
         do { try drawPieces(in: board) }
         catch { /* ¯\_(ツ)_/¯ */ }
 
         drawGuideTiles(in: auxilaryCoordinates)
+    }
+    
+    private func drawGrid(size: Size) {
+        
+        let context = UIGraphicsGetCurrentContext()
+        
+        let coordinates = Set((0 ..< size.width)
+            .flatMap { x in (0 ..< size.height).setMap { y in Coordinate(x: x, y: y) } })
+        
+        for coordinate in coordinates {
+            let frame = rect(for: coordinate, boardSize: board.size)
+            UIColor.lightGray.setFill()
+            context?.fill(frame)
+        }
     }
 
     private func drawPieces(in board: Board) throws {
