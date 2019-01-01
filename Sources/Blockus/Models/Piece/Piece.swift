@@ -39,7 +39,7 @@ public struct Piece: CoordinateContainer {
     }
 }
 
-extension Piece {
+extension CoordinateContainer {
     
     public func calculateAvailableMoves() -> Coordinates {
         

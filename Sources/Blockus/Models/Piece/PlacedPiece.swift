@@ -20,11 +20,15 @@ public struct PlacedPiece {
         self.transforms = transforms
     }
     
-    var tiles: [Coordinate: Color] {
-        
+    public var coordinates: Coordinates {
         return piece.coordinates
             .applying(transforms: transforms)
             .offset(by: origin)
+    }
+    
+    var tiles: [Coordinate: Color] {
+        
+        return coordinates
             .reduce([Coordinate: Color]()) { $0.inserting(value: piece.color, at: $1) }
     }
 }
