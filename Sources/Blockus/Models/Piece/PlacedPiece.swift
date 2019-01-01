@@ -7,8 +7,8 @@
 
 import Foundation
 
-public struct PlacedPiece {
-    
+public struct PlacedPiece: CoordinateContainer {
+
     public var piece: Piece
     public var origin: Coordinate
     public var transforms: TransformCollection
@@ -21,14 +21,24 @@ public struct PlacedPiece {
     }
     
     public var coordinates: Coordinates {
+        
+        let transforms = self.transforms
+            .adding(.offset(by: origin))
+        
         return piece.coordinates
             .applying(transforms: transforms)
-            .offset(by: origin)
     }
     
     var tiles: [Coordinate: Color] {
         
         return coordinates
             .reduce([Coordinate: Color]()) { $0.inserting(value: piece.color, at: $1) }
+    }
+    
+    public func applying(transform: Transform) -> PlacedPiece {
+        
+        return setting(path: \.transforms) { transforms in
+            transforms.adding(transform)
+        }
     }
 }

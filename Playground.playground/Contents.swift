@@ -18,13 +18,13 @@ boardView.board = try boardView.board.place(
 )
 
 boardView.board = try boardView.board.place(
-    piece: Piece(config: .bigL, color: .blue),
-    at: Coordinate(x: 3, y: 3),
-    transforms: nil
+    piece: Piece(config: .longL, color: .blue),
+    at: Coordinate(x: 2, y: 3),
+    transforms: .rotated(amount: .threeQuarters)
 )
 
 boardView.auxilaryCoordinates = boardView.board.pieces
-    .flatMap { $0.coordinates.calculateAvailableMoves() }
+    .flatMap { $0.availableMoves }
     .setMap { $0.offset(by: Coordinate(x: 0, y: 0)) }
 
 
