@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct Board: Settable, Configurable {
+public struct Board: CoordinateContainer {
     
     public let size: Size
     public var pieces: [PlacedPiece]

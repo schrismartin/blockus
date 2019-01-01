@@ -11,8 +11,6 @@ public protocol CoordinateContainer: Settable, Configurable {
     
     var coordinates: Coordinates { get }
     var size: Size { get }
-    
-    func applying(transform: Transform) -> Self
 }
 
 extension CoordinateContainer {
@@ -24,13 +22,6 @@ extension CoordinateContainer {
 }
 
 extension CoordinateContainer {
-    
-    func applying(transforms: TransformCollection) -> Self {
-        
-        return transforms.transforms.reduce(self) { container, transform in
-            container.applying(transform: transform)
-        }
-    }
     
     public var availableMoves: Coordinates {
         

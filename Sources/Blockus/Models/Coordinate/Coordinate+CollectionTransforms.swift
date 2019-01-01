@@ -9,7 +9,7 @@ import Foundation
 
 public typealias Coordinates = Set<Coordinate>
 
-extension Set: CoordinateContainer where Element == Coordinate {
+extension Set: TransformableCoordinateContainer where Element == Coordinate {
     
     public func applying(transform: Transform) -> Set<Element> {
         

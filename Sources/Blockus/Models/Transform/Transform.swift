@@ -8,6 +8,7 @@
 import Foundation
 
 public enum Transform {
+    
     case normalized
     case offset(by: Coordinate)
     case mirrored(axis: Axis)

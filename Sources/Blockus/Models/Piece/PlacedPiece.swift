@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct PlacedPiece: CoordinateContainer {
+public struct PlacedPiece: TransformableCoordinateContainer {
 
     public var piece: Piece
     public var origin: Coordinate

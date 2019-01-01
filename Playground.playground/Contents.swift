@@ -63,8 +63,4 @@ boardView.board = try boardView.board.place(
     transforms: .rotated(amount: .threeQuarters)
 )
 
-
-
-boardView.auxilaryCoordinates = boardView.board.pieces
-    .flatMap { $0.availableMoves }
-    .setMap { $0 }
+boardView.auxilaryCoordinates = boardView.board.availableMoves
