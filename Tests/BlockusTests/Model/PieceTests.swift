@@ -14,7 +14,6 @@ class PieceTests: XCTestCase {
         ("testInitUsingConfig", testInitUsingConfig),
         ("testInitUsingCoordinates", testInitUsingCoordinates),
         ("testRandomPiece", testRandomPiece),
-        ("testAvailableMoveCalculation", testAvailableMoveCalculation),
     ]
 
     func testInitUsingConfig() {
@@ -56,33 +55,5 @@ class PieceTests: XCTestCase {
             XCTAssertLessThanOrEqual(piece.numberOfPieces, size)
             XCTAssertEqual(piece.color, .blue)
         }
-    }
-    
-    func testAvailableMoveCalculation() {
-        
-        let threePiece = Piece(config: .three, color: .blue)
-        XCTAssertEqual(
-            threePiece.calculateAvailableMoves(),
-            [
-                Coordinate(x: -1, y: -1),
-                Coordinate(x: -1, y: 1),
-                Coordinate(x: 3, y: -1),
-                Coordinate(x: 3, y: 1)
-            ]
-        )
-        
-        let stairs = Piece(config: .stairs, color: .blue)
-        XCTAssertEqual(
-            stairs.calculateAvailableMoves(),
-            [
-                Coordinate(x: 0, y: -1),
-                Coordinate(x: 3, y: -1),
-                Coordinate(x: -1, y: 0),
-                Coordinate(x: -1, y: 3),
-                Coordinate(x: 1, y: 3),
-                Coordinate(x: 2, y: 2),
-                Coordinate(x: 3, y: 1)
-            ]
-        )
     }
 }
