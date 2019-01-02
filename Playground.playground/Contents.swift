@@ -63,4 +63,10 @@ boardView.board = try boardView.board.place(
     transforms: .rotated(amount: .threeQuarters)
 )
 
-boardView.auxilaryCoordinates = boardView.board.availableMoves
+boardView.board = try boardView.board.place(
+    piece: Piece(config: .stairs, color: .yellow),
+    at: .zero
+)
+
+boardView.auxilaryTileColor = .black
+boardView.auxilaryCoordinates = boardView.board.corners

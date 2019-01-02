@@ -187,4 +187,22 @@ class CoordinatesTests: XCTestCase {
             ]
         )
     }
+    
+    func testCorners() {
+        
+        let threePiece = Piece(config: .three, color: .blue)
+        XCTAssertEqual(
+            threePiece.coordinates.corners,
+            [
+                Coordinate(x: 0, y: 0),
+                Coordinate(x: 2, y: 0)
+            ]
+        )
+        
+        let stairs = Piece(config: .stairs, color: .blue)
+        XCTAssertEqual(
+            stairs.coordinates.corners,
+            stairs.coordinates
+        )
+    }
 }

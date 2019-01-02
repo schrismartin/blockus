@@ -42,5 +42,19 @@ extension CoordinateContainer {
                 .removing(coord.right)
         }
     }
+    
+    func coordinate(_ coordinate: Coordinate, isSurroundedOnAxis axis: Axis) -> Bool {
+        
+        return coordinate.adjacent(on: axis, in: self).count == 2
+    }
+    
+    public var corners: Coordinates {
+        
+        return coordinates.reduce(Coordinates()) { coordinates, coord in
+            coordinate(coord, isSurroundedOnAxis: .horizontal) || coordinate(coord, isSurroundedOnAxis: .vertical)
+                ? coordinates
+                : coordinates.inserting(coord)
+        }
+    }
 }
 

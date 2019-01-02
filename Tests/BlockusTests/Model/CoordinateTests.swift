@@ -157,4 +157,78 @@ class CoordinateTests: XCTestCase {
         XCTAssertEqual(Coordinate(x: 1, y: 2).description, "(x: 1, y: 2)")
         XCTAssertEqual(Coordinate(x: -1, y: -2).description, "(x: -1, y: -2)")
     }
+    
+    func testAdjacent() {
+        
+        for _ in 0 ..< 100 {
+            let coordinate = Coordinate.random(in: 0..<50)
+            
+            XCTAssertEqual(
+                coordinate.adjacent(on: .horizontal),
+                [
+                    Coordinate(x: coordinate.x - 1, y: coordinate.y),
+                    Coordinate(x: coordinate.x + 1, y: coordinate.y)
+                ]
+            )
+            
+            XCTAssertEqual(
+                coordinate.adjacent(on: .vertical),
+                [
+                    Coordinate(x: coordinate.x, y: coordinate.y - 1),
+                    Coordinate(x: coordinate.x, y: coordinate.y + 1)
+                ]
+            )
+        }
+    }
+    
+    func testAdjacentInContainer() {
+        
+        let container: Set<Coordinate> = [
+            Coordinate(x: 0, y: 0),
+            Coordinate(x: 0, y: 1),
+            Coordinate(x: 0, y: 2),
+            Coordinate(x: 1, y: 1),
+            Coordinate(x: 2, y: 1)
+        ]
+        
+        XCTAssertEqual(
+            Coordinate(x: 0, y: 0).adjacent(on: .vertical, in: container),
+            [Coordinate(x: 0, y: 1)]
+        )
+        
+        XCTAssertEqual(
+            Coordinate(x: 0, y: 1).adjacent(on: .vertical, in: container),
+            [Coordinate(x: 0, y: 0), Coordinate(x: 0, y: 2)]
+        )
+        
+        XCTAssertEqual(
+            Coordinate(x: 0, y: 2).adjacent(on: .vertical, in: container),
+            [Coordinate(x: 0, y: 1)]
+        )
+        
+        XCTAssertEqual(
+            Coordinate(x: 1, y: 1).adjacent(on: .vertical, in: container),
+            []
+        )
+        
+        XCTAssertEqual(
+            Coordinate(x: 0, y: 1).adjacent(on: .horizontal, in: container),
+            [Coordinate(x: 1, y: 1)]
+        )
+        
+        XCTAssertEqual(
+            Coordinate(x: 1, y: 1).adjacent(on: .horizontal, in: container),
+            [Coordinate(x: 0, y: 1), Coordinate(x: 2, y: 1)]
+        )
+        
+        XCTAssertEqual(
+            Coordinate(x: 2, y: 1).adjacent(on: .horizontal, in: container),
+            [Coordinate(x: 1, y: 1)]
+        )
+        
+        XCTAssertEqual(
+            Coordinate(x: 0, y: 0).adjacent(on: .horizontal, in: container),
+            []
+        )
+    }
 }

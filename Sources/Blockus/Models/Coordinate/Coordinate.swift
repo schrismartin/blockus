@@ -12,7 +12,7 @@ public struct Coordinate: Hashable, Settable {
     public var x: Int
     public var y: Int
     
-    static let zero = Coordinate(x: 0, y: 0)
+    public static let zero = Coordinate(x: 0, y: 0)
     
     static func random(in range: Range<Int>) -> Coordinate {
         return Coordinate(
@@ -52,6 +52,14 @@ extension Coordinate {
     public var right: Coordinate {
         return setting(path: \Coordinate.x, using: Int.incr)
     }
+    
+    public func adjacent(on axis: Axis) -> Coordinates {
+        
+        switch axis {
+        case .horizontal: return [left, right]
+        case .vertical: return [above, below]
+        }
+    }
 }
 
 extension Coordinate {
@@ -70,6 +78,15 @@ extension Coordinate {
     
     public var lowerRight: Coordinate {
         return below.right
+    }
+}
+
+extension Coordinate {
+    
+    public func adjacent(on axis: Axis, in container: CoordinateContainer) -> Coordinates {
+        
+        return adjacent(on: axis)
+            .intersection(container.coordinates)
     }
 }
 
