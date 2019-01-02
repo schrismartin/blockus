@@ -29,18 +29,3 @@ public struct TransformCollection: Settable {
         }
     }
 }
-
-extension TransformCollection: ExpressibleByNilLiteral {
-    
-    public init(nilLiteral: ()) {
-        self.init()
-    }
-    
-    public static func mirrored(on axis: Axis) -> TransformCollection {
-        return TransformCollection().mirrored(on: axis)
-    }
-    
-    public static func rotated(amount: Rotation) -> TransformCollection {
-        return TransformCollection().rotated(amount: amount)
-    }
-}

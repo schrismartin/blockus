@@ -38,3 +38,22 @@ public struct Piece {
         self.init(coordinates: config.coordinates, color: color)
     }
 }
+
+extension Piece: CustomStringConvertible {
+    
+    public var description: String {
+        
+        var description = ""
+        
+        for y in 0 ..< size.height {
+            description.append("\n")
+            for x in 0 ..< size.width {
+                let coord = Coordinate(x: x, y: y)
+                let character = coordinates.contains(coord) ? "X" : " "
+                description.append(character)
+            }
+        }
+        
+        return description
+    }
+}

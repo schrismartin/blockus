@@ -25,6 +25,16 @@ public struct Board {
         
         return tiles[coordinate]
     }
+    
+    public func startingPoint(for color: Color) -> Coordinate {
+        
+        switch color {
+        case .blue: return size.topLeft
+        case .yellow: return size.topRight
+        case .red: return size.bottomLeft
+        case .green: return size.bottomRight
+        }
+    }
 }
 
 extension Board: CoordinateContainer {
@@ -40,9 +50,17 @@ extension Board: CoordinateContainer {
         return Set(pieces(of: color)
             .flatMap { $0.coordinates.availableMoves }
             .toSet()
+            .inserting(startingPoint(for: color))
             .lazy
             .filter { coord in self.tile(at: coord) == nil }
             .filter { coord in self.size.contains(point: coord) })
+    }
+    
+    public func allCoordinates(for color: Color) -> Coordinates {
+        
+        return pieces(of: color)
+            .flatMap { $0.coordinates }
+            .toSet()
     }
     
     func pieces(of color: Color) -> [PlacedPiece] {
@@ -52,6 +70,21 @@ extension Board: CoordinateContainer {
 }
 
 extension Board {
+    
+    public static func validate(piece: PlacedPiece, isValidFor board: Board) throws {
+        
+        let moves = board.availableMoves(for: piece.piece.color)
+        let corners = piece.corners
+        let sides = piece.sides
+        
+        guard !moves.intersection(corners).isEmpty else {
+            throw Error.invalidMove(piece: piece.piece, origin: piece.origin, transforms: piece.transforms)
+        }
+        
+        guard board.allCoordinates(for: piece.piece.color).intersection(sides).isEmpty else {
+            throw Error.invalidMove(piece: piece.piece, origin: piece.origin, transforms: piece.transforms)
+        }
+    }
     
     public static func validate(coordinate: Coordinate, existsOn board: Board) throws {
         
@@ -70,7 +103,7 @@ extension Board {
 
 extension Board {
     
-    public func place(piece: Piece, at coordinate: Coordinate, transforms: TransformCollection = nil) throws -> Board {
+    public func place(piece: Piece, at coordinate: Coordinate, transforms: TransformCollection = .init()) throws -> Board {
         
         let placedPiece = PlacedPiece(
             piece: piece,
@@ -78,7 +111,14 @@ extension Board {
             transforms: transforms
         )
         
+        try Board.validate(piece: placedPiece, isValidFor: self)
+        
         let tiles = placedPiece.tiles
+        
+        for coordinate in tiles.keys {
+            try Board.validate(coordinate: coordinate, isVacantOn: self)
+            try Board.validate(coordinate: coordinate, existsOn: self)
+        }
         
         try tiles.keys.forEach { coord in try Board.validate(coordinate: coord, isVacantOn: self) }
         
@@ -93,5 +133,20 @@ extension Board {
     public enum Error: Swift.Error {
         case itemExists(color: Color, coord: Coordinate)
         case invalidCoordinate(Coordinate)
+        case invalidMove(piece: Piece, origin: Coordinate, transforms: TransformCollection)
+    }
+}
+
+extension Board.Error: CustomStringConvertible {
+    
+    public var description: String {
+        switch self {
+        case .itemExists(color: let color, coord: let coord):
+            return "Item of color \(color) exists on coordinate \(coord)"
+        case .invalidCoordinate(let coord):
+            return "Coordinate \(coord) does not exist on the board"
+        case .invalidMove(piece: let piece, origin: let origin, transforms: _):
+            return "Piece cannot be placed at \(origin): \(piece)"
+        }
     }
 }
