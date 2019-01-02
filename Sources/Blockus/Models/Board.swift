@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct Board: CoordinateContainer {
+public struct Board {
     
     public let size: Size
     public var pieces: [PlacedPiece]
@@ -21,23 +21,33 @@ public struct Board: CoordinateContainer {
         self.pieces = []
     }
     
-    public func tile(at coordinate: Coordinate) throws -> Color? {
+    public func tile(at coordinate: Coordinate) -> Color? {
         
-        try Board.validate(coordinate: coordinate, existsOn: self)
         return tiles[coordinate]
     }
+}
+
+extension Board: CoordinateContainer {
     
     public var coordinates: Coordinates {
         return pieces
             .flatMap { $0.coordinates }
-            .setMap { $0 }
+            .toSet()
     }
     
-    func generateTiles(for pieces: [PlacedPiece]) -> [Coordinate: Color] {
+    public func availableMoves(for color: Color) -> Coordinates {
         
-        return pieces.reduce([Coordinate: Color]()) { dict, piece in
-            dict.merging(piece.tiles) { color, _ in color }
-        }
+        return Set(pieces(of: color)
+            .flatMap { $0.coordinates.availableMoves }
+            .toSet()
+            .lazy
+            .filter { coord in self.tile(at: coord) == nil }
+            .filter { coord in self.size.contains(point: coord) })
+    }
+    
+    func pieces(of color: Color) -> [PlacedPiece] {
+        
+        return pieces.filter { $0.piece.color == color }
     }
 }
 
@@ -52,7 +62,7 @@ extension Board {
     
     public static func validate(coordinate: Coordinate, isVacantOn board: Board) throws {
         
-        if let color = try board.tile(at: coordinate) {
+        if let color = board.tile(at: coordinate) {
             throw Error.itemExists(color: color, coord: coordinate)
         }
     }

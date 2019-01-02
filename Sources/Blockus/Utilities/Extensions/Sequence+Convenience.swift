@@ -15,3 +15,11 @@ extension Sequence {
             .reduce(Set<T>()) { set, value in set.inserting(value) }
     }
 }
+
+extension Sequence where Element: Hashable {
+    
+    func toSet() -> Set<Element> {
+        
+        return setMap { $0 }
+    }
+}

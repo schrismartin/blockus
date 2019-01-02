@@ -34,6 +34,12 @@ public struct Size: Equatable {
         )
     }
     
+    public func contains(point: Coordinate) -> Bool {
+        
+        return (0 ..< width).contains(point.x)
+            && (0 ..< height).contains(point.y)
+    }
+    
     public var topLeft: Coordinate { return Coordinate(x: 0, y: 0) }
     public var topRight: Coordinate { return Coordinate(x: width - 1, y: 0) }
     public var bottomLeft: Coordinate { return Coordinate(x: 0, y: height - 1) }

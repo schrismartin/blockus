@@ -69,4 +69,7 @@ boardView.board = try boardView.board.place(
 )
 
 boardView.auxilaryTileColor = .black
-boardView.auxilaryCoordinates = boardView.board.corners
+
+let moves = boardView.board.availableMoves(for: .green)
+print(moves.count)
+boardView.auxilaryCoordinates = moves
