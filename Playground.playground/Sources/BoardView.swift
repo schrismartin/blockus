@@ -10,6 +10,10 @@ public class BoardView: UIView {
     public var board: Board {
         didSet { setNeedsDisplay() }
     }
+    
+    public var auxilaryTileColor = UIColor.yellow.withAlphaComponent(0.5) {
+        didSet { setNeedsDisplay() }
+    }
 
     public var auxilaryCoordinates: Coordinates {
         didSet { setNeedsDisplay() }
@@ -67,9 +71,7 @@ public class BoardView: UIView {
         for coordinate in auxilaryCoordinates {
 
             let frame = self.rect(for: coordinate, boardSize: board.size)
-            let color = UIColor.yellow.withAlphaComponent(0.5)
-
-            color.setFill()
+            auxilaryTileColor.setFill()
             context?.fill(frame)
         }
     }

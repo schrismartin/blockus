@@ -9,7 +9,7 @@ import Foundation
 
 extension Dictionary {
     
-    func inserting(value: Value, at key: Key) -> Dictionary<Key, Value> {
+    public func inserting(value: Value, at key: Key) -> Dictionary<Key, Value> {
         
         var mutableSelf = self
         mutableSelf[key] = value
