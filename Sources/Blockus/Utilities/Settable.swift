@@ -18,9 +18,9 @@ extension Settable {
         return mutableSelf
     }
     
-    public func setting<Value>(path keyPath: WritableKeyPath<Self, Value>, using modification: (Value) -> Value) -> Self {
+    public func setting<Value>(path keyPath: WritableKeyPath<Self, Value>, using modification: (Value) throws -> Value) rethrows -> Self {
         
-        return setting(path: keyPath, to: modification(self[keyPath: keyPath]))
+        return setting(path: keyPath, to: try modification(self[keyPath: keyPath]))
     }
 }
 

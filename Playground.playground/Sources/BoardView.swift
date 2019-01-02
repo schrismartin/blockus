@@ -2,13 +2,18 @@ import Foundation
 import Blockus
 import UIKit
 
-public class BoardView: UIView {
+public class BoardView: UIView, GameBoardView {
 
     public static let defaultFrame = CGRect(x: 0, y: 0, width: 600, height: 600)
     public static let defaultMargin: CGFloat = 2
 
     public var board: Board {
         didSet { setNeedsDisplay() }
+    }
+    
+    public func refresh() {
+        
+        setNeedsDisplay()
     }
     
     public var auxilaryTileColor = UIColor.yellow.withAlphaComponent(0.5) {
