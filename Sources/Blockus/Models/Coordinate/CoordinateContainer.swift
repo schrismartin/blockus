@@ -56,5 +56,16 @@ extension CoordinateContainer {
                 : coordinates.inserting(coord)
         }
     }
+    
+    public var sides: Coordinates {
+        
+        return coordinates.reduce(Coordinates()) { coordinates, coord in
+            coordinates
+                .inserting(coord.above)
+                .inserting(coord.right)
+                .inserting(coord.left)
+                .inserting(coord.below)
+        }
+    }
 }
 

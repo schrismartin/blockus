@@ -8,73 +8,59 @@
 
 import Foundation
 
-public struct PieceConfiguration: ExpressibleByStringLiteral {
+protocol PieceConfigurationRepresentable {
     
-    private(set) public var coordinates = Coordinates()
+    var stringValue: String { get }
+    var coordinates: Coordinates { get }
+}
+
+extension PieceConfigurationRepresentable {
     
-    public init(string: String) {
+    var coordinates: Coordinates {
         
-        for (y, line) in string.split(separator: "\n").enumerated() {
+        var coordinates = Coordinates()
+        
+        for (y, line) in stringValue.split(separator: "\n").enumerated() {
             for (x, tile) in line.enumerated() where tile != " " {
                 let coord = Coordinate(x: x, y: y)
                 coordinates.insert(coord)
             }
         }
         
-        coordinates = normalize(coordinates)
-    }
-    
-    public init(stringLiteral string: String) {
-        
-        self.init(string: string)
+        return normalize(coordinates)
     }
 }
 
-extension PieceConfiguration {
+public enum PieceConfiguration: String, CaseIterable {
     
-    public static let one: PieceConfiguration = "X"
-    public static let two: PieceConfiguration = "XX"
-    public static let corner: PieceConfiguration = "XX\n X"
-    public static let three: PieceConfiguration = "XXX"
-    public static let square: PieceConfiguration = "XX\nXX"
-    public static let finger: PieceConfiguration = " X \nXXX"
-    public static let four: PieceConfiguration = "XXXX"
-    public static let smallL: PieceConfiguration = "  X\nXXX"
-    public static let zag: PieceConfiguration = " XX\nXX"
-    public static let longL: PieceConfiguration = "X\nXXXX"
-    public static let longFinger: PieceConfiguration = " X \n X \nXXX"
-    public static let bigL: PieceConfiguration = "X\nX\nXXX"
-    public static let longZag: PieceConfiguration = " XXX\nXX"
-    public static let wave: PieceConfiguration = "  X\nXXX\nX"
-    public static let five: PieceConfiguration = "XXXXX"
-    public static let thumb: PieceConfiguration = "X\nXX\nXX"
-    public static let stairs: PieceConfiguration = " XX\nXX\nX"
-    public static let c: PieceConfiguration = "XX\nX\nXX"
-    public static let awkward: PieceConfiguration = " XX\nXX\n X"
-    public static let plus: PieceConfiguration = " X \nXXX\n X "
-    public static let mummy: PieceConfiguration = " X\nXXXX"
+    case one = "X"
+    case two = "XX"
+    case corner = "XX\n X"
+    case three = "XXX"
+    case square = "XX\nXX"
+    case finger = " X \nXXX"
+    case four = "XXXX"
+    case smallL = "  X\nXXX"
+    case zag = " XX\nXX"
+    case longL = "X\nXXXX"
+    case longFinger = " X \n X \nXXX"
+    case bigL = "X\nX\nXXX"
+    case longZag = " XXX\nXX"
+    case wave = "  X\nXXX\nX"
+    case five = "XXXXX"
+    case thumb = "X\nXX\nXX"
+    case stairs = " XX\nXX\nX"
+    case c = "XX\nX\nXX"
+    case awkward = " XX\nXX\n X"
+    case plus = " X \nXXX\n X "
+    case mummy = " X\nXXXX"
+}
+
+extension PieceConfiguration: Hashable { }
+
+extension PieceConfiguration: PieceConfigurationRepresentable {
     
-    public static let allPieces: [PieceConfiguration] = [
-        .one,
-        .two,
-        .corner,
-        .three,
-        .square,
-        .finger,
-        .four,
-        .smallL,
-        .zag,
-        .longL,
-        .longFinger,
-        .bigL,
-        .longZag,
-        .wave,
-        .five,
-        .thumb,
-        .stairs,
-        .c,
-        .awkward,
-        .plus,
-        .mummy,
-    ]
+    var stringValue: String {
+        return rawValue
+    }
 }

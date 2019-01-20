@@ -16,11 +16,20 @@ class PieceConfigurationTests: XCTestCase {
         ("testInitializationWithLeadingHorizontalSpace", testInitializationWithLeadingHorizontalSpace),
         ("testInitializationWithLeadingVerticalSpace", testInitializationWithLeadingVerticalSpace),
     ]
+    
+    struct MockPiece: PieceConfigurationRepresentable {
+        
+        let stringValue: String
+        
+        init(stringLiteral: String) {
+            self.stringValue = stringLiteral
+        }
+    }
 
     func testOneLineInitializer() {
         
         XCTAssertEqual(
-            PieceConfiguration(stringLiteral: "XXX").coordinates,
+            MockPiece(stringLiteral: "XXX").coordinates,
             [
                 Coordinate(x: 0, y: 0),
                 Coordinate(x: 1, y: 0),
@@ -32,7 +41,7 @@ class PieceConfigurationTests: XCTestCase {
     func testMultiLineInitializer() {
         
         XCTAssertEqual(
-            PieceConfiguration(stringLiteral: "X\nX\nX").coordinates,
+            MockPiece(stringLiteral: "X\nX\nX").coordinates,
             [
                 Coordinate(x: 0, y: 0),
                 Coordinate(x: 0, y: 1),
@@ -44,7 +53,7 @@ class PieceConfigurationTests: XCTestCase {
     func testInitializationWithLeadingHorizontalSpace() {
         
         XCTAssertEqual(
-            PieceConfiguration(stringLiteral: " X\n X\n X").coordinates,
+            MockPiece(stringLiteral: " X\n X\n X").coordinates,
             [
                 Coordinate(x: 0, y: 0),
                 Coordinate(x: 0, y: 1),
@@ -56,7 +65,7 @@ class PieceConfigurationTests: XCTestCase {
     func testInitializationWithLeadingVerticalSpace() {
         
         XCTAssertEqual(
-            PieceConfiguration(stringLiteral: "   \nXXX").coordinates,
+            MockPiece(stringLiteral: "   \nXXX").coordinates,
             [
                 Coordinate(x: 0, y: 0),
                 Coordinate(x: 1, y: 0),

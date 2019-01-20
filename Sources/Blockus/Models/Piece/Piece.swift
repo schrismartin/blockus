@@ -10,31 +10,53 @@ import Foundation
 
 public struct Piece {
     
-    public var coordinates: Coordinates
+    public var config: PieceConfiguration
     public let size: Size
     public let numberOfPieces: Int
     public let color: Color
     
-    public static func random(of size: Size, numberOfPieces: Int, color: Color) -> Piece {
-        
-        let coordinates = (0 ..< numberOfPieces).reduce(Coordinates()) { set, _ in
-            set.inserting(.random(in: size))
-        }
-        
-        return Piece(coordinates: coordinates, color: color)
-    }
-    
-    public init(coordinates: Coordinates, color: Color) {
-        
-        self.coordinates = coordinates
-        self.color = color
-        
-        size = Size(from: coordinates)
-        numberOfPieces = self.coordinates.count
+    var coordinates: Coordinates {
+        return config.coordinates
     }
     
     public init(config: PieceConfiguration, color: Color) {
         
-        self.init(coordinates: config.coordinates, color: color)
+        self.config = config
+        self.color = color
+        
+        let coords = config.coordinates
+        self.size = Size(from: coords)
+        self.numberOfPieces = coords.count
+    }
+}
+
+extension Piece: CustomStringConvertible {
+    
+    public var description: String {
+        
+        var description = ""
+        
+        for y in 0 ..< size.height {
+            description.append("\n")
+            for x in 0 ..< size.width {
+                let coord = Coordinate(x: x, y: y)
+                let character = coordinates.contains(coord) ? "X" : " "
+                description.append(character)
+            }
+        }
+        
+        return description
+    }
+}
+
+extension Piece: Hashable {
+    
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(coordinates)
+       _ = hasher.finalize()
+    }
+    
+    public static func == (lhs: Piece, rhs: Piece) -> Bool {
+        return lhs.coordinates == rhs.coordinates
     }
 }
