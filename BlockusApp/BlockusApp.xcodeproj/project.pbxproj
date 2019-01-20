@@ -8,12 +8,21 @@
 
 /* Begin PBXBuildFile section */
 		B447C62321F40ED9002F2608 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B447C62221F40ED9002F2608 /* AppDelegate.swift */; };
-		B447C62521F40ED9002F2608 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B447C62421F40ED9002F2608 /* ViewController.swift */; };
-		B447C62821F40ED9002F2608 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B447C62621F40ED9002F2608 /* Main.storyboard */; };
+		B447C62521F40ED9002F2608 /* AppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B447C62421F40ED9002F2608 /* AppViewController.swift */; };
 		B447C62A21F40EDA002F2608 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B447C62921F40EDA002F2608 /* Assets.xcassets */; };
 		B447C62D21F40EDA002F2608 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B447C62B21F40EDA002F2608 /* LaunchScreen.storyboard */; };
 		B447C63821F40EDB002F2608 /* BlockusAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B447C63721F40EDB002F2608 /* BlockusAppTests.swift */; };
 		B447C64321F40EDB002F2608 /* BlockusAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B447C64221F40EDB002F2608 /* BlockusAppUITests.swift */; };
+		B447C65321F4122E002F2608 /* StartupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B447C65121F4122E002F2608 /* StartupViewController.swift */; };
+		B447C65421F4122E002F2608 /* StartupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B447C65221F4122E002F2608 /* StartupViewController.xib */; };
+		B447C65721F4141B002F2608 /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B447C65621F4141B002F2608 /* BoardView.swift */; };
+		B447C65A21F41463002F2608 /* UIColor+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = B447C65921F41463002F2608 /* UIColor+Color.swift */; };
+		B447C66021F414F2002F2608 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B447C65E21F414F2002F2608 /* GameViewController.swift */; };
+		B447C66121F414F2002F2608 /* GameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B447C65F21F414F2002F2608 /* GameViewController.xib */; };
+		B447C66621F41CF2002F2608 /* Blockus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B447C66521F41CF2002F2608 /* Blockus.framework */; };
+		B447C66821F42286002F2608 /* TileCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B447C66721F42286002F2608 /* TileCollectionView.swift */; };
+		B447C66D21F43266002F2608 /* PieceEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B447C66B21F43266002F2608 /* PieceEditViewController.swift */; };
+		B447C66E21F43266002F2608 /* PieceEditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B447C66C21F43266002F2608 /* PieceEditViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,8 +45,7 @@
 /* Begin PBXFileReference section */
 		B447C61F21F40ED9002F2608 /* BlockusApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlockusApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B447C62221F40ED9002F2608 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B447C62421F40ED9002F2608 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		B447C62721F40ED9002F2608 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		B447C62421F40ED9002F2608 /* AppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppViewController.swift; sourceTree = "<group>"; };
 		B447C62921F40EDA002F2608 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B447C62C21F40EDA002F2608 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B447C62E21F40EDA002F2608 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -47,6 +55,16 @@
 		B447C63E21F40EDB002F2608 /* BlockusAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BlockusAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B447C64221F40EDB002F2608 /* BlockusAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockusAppUITests.swift; sourceTree = "<group>"; };
 		B447C64421F40EDB002F2608 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B447C65121F4122E002F2608 /* StartupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartupViewController.swift; sourceTree = "<group>"; };
+		B447C65221F4122E002F2608 /* StartupViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StartupViewController.xib; sourceTree = "<group>"; };
+		B447C65621F4141B002F2608 /* BoardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardView.swift; sourceTree = "<group>"; };
+		B447C65921F41463002F2608 /* UIColor+Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Color.swift"; sourceTree = "<group>"; };
+		B447C65E21F414F2002F2608 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		B447C65F21F414F2002F2608 /* GameViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameViewController.xib; sourceTree = "<group>"; };
+		B447C66521F41CF2002F2608 /* Blockus.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Blockus.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B447C66721F42286002F2608 /* TileCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileCollectionView.swift; sourceTree = "<group>"; };
+		B447C66B21F43266002F2608 /* PieceEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieceEditViewController.swift; sourceTree = "<group>"; };
+		B447C66C21F43266002F2608 /* PieceEditViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PieceEditViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B447C66621F41CF2002F2608 /* Blockus.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +100,7 @@
 				B447C63621F40EDB002F2608 /* BlockusAppTests */,
 				B447C64121F40EDB002F2608 /* BlockusAppUITests */,
 				B447C62021F40ED9002F2608 /* Products */,
+				B447C66421F41CF2002F2608 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -98,11 +118,10 @@
 			isa = PBXGroup;
 			children = (
 				B447C62221F40ED9002F2608 /* AppDelegate.swift */,
-				B447C62421F40ED9002F2608 /* ViewController.swift */,
-				B447C62621F40ED9002F2608 /* Main.storyboard */,
-				B447C62921F40EDA002F2608 /* Assets.xcassets */,
-				B447C62B21F40EDA002F2608 /* LaunchScreen.storyboard */,
-				B447C62E21F40EDA002F2608 /* Info.plist */,
+				B447C62421F40ED9002F2608 /* AppViewController.swift */,
+				B447C65821F41441002F2608 /* Utils */,
+				B447C65021F41211002F2608 /* User Interface */,
+				B447C65B21F41472002F2608 /* Resources */,
 			);
 			path = BlockusApp;
 			sourceTree = "<group>";
@@ -123,6 +142,79 @@
 				B447C64421F40EDB002F2608 /* Info.plist */,
 			);
 			path = BlockusAppUITests;
+			sourceTree = "<group>";
+		};
+		B447C65021F41211002F2608 /* User Interface */ = {
+			isa = PBXGroup;
+			children = (
+				B447C65521F4140C002F2608 /* Views */,
+				B447C65C21F414DA002F2608 /* Startup View Controller */,
+				B447C65D21F414E0002F2608 /* Game View Controller */,
+			);
+			path = "User Interface";
+			sourceTree = "<group>";
+		};
+		B447C65521F4140C002F2608 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B447C65621F4141B002F2608 /* BoardView.swift */,
+				B447C66721F42286002F2608 /* TileCollectionView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		B447C65821F41441002F2608 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				B447C65921F41463002F2608 /* UIColor+Color.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		B447C65B21F41472002F2608 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B447C62921F40EDA002F2608 /* Assets.xcassets */,
+				B447C62B21F40EDA002F2608 /* LaunchScreen.storyboard */,
+				B447C62E21F40EDA002F2608 /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		B447C65C21F414DA002F2608 /* Startup View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B447C65121F4122E002F2608 /* StartupViewController.swift */,
+				B447C65221F4122E002F2608 /* StartupViewController.xib */,
+			);
+			path = "Startup View Controller";
+			sourceTree = "<group>";
+		};
+		B447C65D21F414E0002F2608 /* Game View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B447C65E21F414F2002F2608 /* GameViewController.swift */,
+				B447C65F21F414F2002F2608 /* GameViewController.xib */,
+				B447C66F21F4326C002F2608 /* Piece Edit View Controller */,
+			);
+			path = "Game View Controller";
+			sourceTree = "<group>";
+		};
+		B447C66421F41CF2002F2608 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B447C66521F41CF2002F2608 /* Blockus.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B447C66F21F4326C002F2608 /* Piece Edit View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B447C66B21F43266002F2608 /* PieceEditViewController.swift */,
+				B447C66C21F43266002F2608 /* PieceEditViewController.xib */,
+			);
+			path = "Piece Edit View Controller";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -229,9 +321,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B447C66121F414F2002F2608 /* GameViewController.xib in Resources */,
 				B447C62D21F40EDA002F2608 /* LaunchScreen.storyboard in Resources */,
+				B447C66E21F43266002F2608 /* PieceEditViewController.xib in Resources */,
+				B447C65421F4122E002F2608 /* StartupViewController.xib in Resources */,
 				B447C62A21F40EDA002F2608 /* Assets.xcassets in Resources */,
-				B447C62821F40ED9002F2608 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,8 +350,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B447C62521F40ED9002F2608 /* ViewController.swift in Sources */,
+				B447C62521F40ED9002F2608 /* AppViewController.swift in Sources */,
+				B447C65721F4141B002F2608 /* BoardView.swift in Sources */,
+				B447C66821F42286002F2608 /* TileCollectionView.swift in Sources */,
+				B447C66D21F43266002F2608 /* PieceEditViewController.swift in Sources */,
+				B447C65321F4122E002F2608 /* StartupViewController.swift in Sources */,
 				B447C62321F40ED9002F2608 /* AppDelegate.swift in Sources */,
+				B447C66021F414F2002F2608 /* GameViewController.swift in Sources */,
+				B447C65A21F41463002F2608 /* UIColor+Color.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,14 +393,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		B447C62621F40ED9002F2608 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B447C62721F40ED9002F2608 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		B447C62B21F40EDA002F2608 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -434,7 +526,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4TD75KA4GE;
-				INFOPLIST_FILE = BlockusApp/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/BlockusApp/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -452,7 +544,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4TD75KA4GE;
-				INFOPLIST_FILE = BlockusApp/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/BlockusApp/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

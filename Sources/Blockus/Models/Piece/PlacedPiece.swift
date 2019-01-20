@@ -13,11 +13,23 @@ public struct PlacedPiece: TransformableCoordinateContainer {
     public var origin: Coordinate
     public var transforms: TransformCollection
     
-    init(piece: Piece, origin: Coordinate, transforms: TransformCollection) {
+    public init(piece: Piece, origin: Coordinate, transforms: TransformCollection) {
         
         self.piece = piece
         self.origin = origin
         self.transforms = transforms
+    }
+    
+    public init(piece: Piece, center: Coordinate, transforms: TransformCollection) {
+        
+        self.init(
+            piece: piece,
+            origin: Coordinate(
+                x: center.x - piece.size.center.x,
+                y: center.y - piece.size.center.y
+            ),
+            transforms: transforms
+        )
     }
     
     public var coordinates: Coordinates {
@@ -40,5 +52,12 @@ public struct PlacedPiece: TransformableCoordinateContainer {
         return setting(path: \.transforms) { transforms in
             transforms.adding(transform)
         }
+    }
+}
+
+extension PlacedPiece: TileCollection {
+    
+    public func tile(at coordinate: Coordinate) -> Color? {
+        return coordinates.contains(coordinate) ? piece.color : nil
     }
 }
