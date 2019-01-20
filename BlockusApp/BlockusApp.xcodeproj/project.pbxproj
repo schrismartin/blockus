@@ -1,0 +1,587 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B447C62321F40ED9002F2608 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B447C62221F40ED9002F2608 /* AppDelegate.swift */; };
+		B447C62521F40ED9002F2608 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B447C62421F40ED9002F2608 /* ViewController.swift */; };
+		B447C62821F40ED9002F2608 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B447C62621F40ED9002F2608 /* Main.storyboard */; };
+		B447C62A21F40EDA002F2608 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B447C62921F40EDA002F2608 /* Assets.xcassets */; };
+		B447C62D21F40EDA002F2608 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B447C62B21F40EDA002F2608 /* LaunchScreen.storyboard */; };
+		B447C63821F40EDB002F2608 /* BlockusAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B447C63721F40EDB002F2608 /* BlockusAppTests.swift */; };
+		B447C64321F40EDB002F2608 /* BlockusAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B447C64221F40EDB002F2608 /* BlockusAppUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B447C63421F40EDB002F2608 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B447C61721F40ED9002F2608 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B447C61E21F40ED9002F2608;
+			remoteInfo = BlockusApp;
+		};
+		B447C63F21F40EDB002F2608 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B447C61721F40ED9002F2608 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B447C61E21F40ED9002F2608;
+			remoteInfo = BlockusApp;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		B447C61F21F40ED9002F2608 /* BlockusApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlockusApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B447C62221F40ED9002F2608 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		B447C62421F40ED9002F2608 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B447C62721F40ED9002F2608 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		B447C62921F40EDA002F2608 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B447C62C21F40EDA002F2608 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B447C62E21F40EDA002F2608 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B447C63321F40EDB002F2608 /* BlockusAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BlockusAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B447C63721F40EDB002F2608 /* BlockusAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockusAppTests.swift; sourceTree = "<group>"; };
+		B447C63921F40EDB002F2608 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B447C63E21F40EDB002F2608 /* BlockusAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BlockusAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B447C64221F40EDB002F2608 /* BlockusAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockusAppUITests.swift; sourceTree = "<group>"; };
+		B447C64421F40EDB002F2608 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B447C61C21F40ED9002F2608 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B447C63021F40EDB002F2608 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B447C63B21F40EDB002F2608 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B447C61621F40ED9002F2608 = {
+			isa = PBXGroup;
+			children = (
+				B447C62121F40ED9002F2608 /* BlockusApp */,
+				B447C63621F40EDB002F2608 /* BlockusAppTests */,
+				B447C64121F40EDB002F2608 /* BlockusAppUITests */,
+				B447C62021F40ED9002F2608 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B447C62021F40ED9002F2608 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B447C61F21F40ED9002F2608 /* BlockusApp.app */,
+				B447C63321F40EDB002F2608 /* BlockusAppTests.xctest */,
+				B447C63E21F40EDB002F2608 /* BlockusAppUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B447C62121F40ED9002F2608 /* BlockusApp */ = {
+			isa = PBXGroup;
+			children = (
+				B447C62221F40ED9002F2608 /* AppDelegate.swift */,
+				B447C62421F40ED9002F2608 /* ViewController.swift */,
+				B447C62621F40ED9002F2608 /* Main.storyboard */,
+				B447C62921F40EDA002F2608 /* Assets.xcassets */,
+				B447C62B21F40EDA002F2608 /* LaunchScreen.storyboard */,
+				B447C62E21F40EDA002F2608 /* Info.plist */,
+			);
+			path = BlockusApp;
+			sourceTree = "<group>";
+		};
+		B447C63621F40EDB002F2608 /* BlockusAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				B447C63721F40EDB002F2608 /* BlockusAppTests.swift */,
+				B447C63921F40EDB002F2608 /* Info.plist */,
+			);
+			path = BlockusAppTests;
+			sourceTree = "<group>";
+		};
+		B447C64121F40EDB002F2608 /* BlockusAppUITests */ = {
+			isa = PBXGroup;
+			children = (
+				B447C64221F40EDB002F2608 /* BlockusAppUITests.swift */,
+				B447C64421F40EDB002F2608 /* Info.plist */,
+			);
+			path = BlockusAppUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B447C61E21F40ED9002F2608 /* BlockusApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B447C64721F40EDB002F2608 /* Build configuration list for PBXNativeTarget "BlockusApp" */;
+			buildPhases = (
+				B447C61B21F40ED9002F2608 /* Sources */,
+				B447C61C21F40ED9002F2608 /* Frameworks */,
+				B447C61D21F40ED9002F2608 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BlockusApp;
+			productName = BlockusApp;
+			productReference = B447C61F21F40ED9002F2608 /* BlockusApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		B447C63221F40EDB002F2608 /* BlockusAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B447C64A21F40EDB002F2608 /* Build configuration list for PBXNativeTarget "BlockusAppTests" */;
+			buildPhases = (
+				B447C62F21F40EDB002F2608 /* Sources */,
+				B447C63021F40EDB002F2608 /* Frameworks */,
+				B447C63121F40EDB002F2608 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B447C63521F40EDB002F2608 /* PBXTargetDependency */,
+			);
+			name = BlockusAppTests;
+			productName = BlockusAppTests;
+			productReference = B447C63321F40EDB002F2608 /* BlockusAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		B447C63D21F40EDB002F2608 /* BlockusAppUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B447C64D21F40EDB002F2608 /* Build configuration list for PBXNativeTarget "BlockusAppUITests" */;
+			buildPhases = (
+				B447C63A21F40EDB002F2608 /* Sources */,
+				B447C63B21F40EDB002F2608 /* Frameworks */,
+				B447C63C21F40EDB002F2608 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B447C64021F40EDB002F2608 /* PBXTargetDependency */,
+			);
+			name = BlockusAppUITests;
+			productName = BlockusAppUITests;
+			productReference = B447C63E21F40EDB002F2608 /* BlockusAppUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B447C61721F40ED9002F2608 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1010;
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = "Chris Martin";
+				TargetAttributes = {
+					B447C61E21F40ED9002F2608 = {
+						CreatedOnToolsVersion = 10.1;
+					};
+					B447C63221F40EDB002F2608 = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = B447C61E21F40ED9002F2608;
+					};
+					B447C63D21F40EDB002F2608 = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = B447C61E21F40ED9002F2608;
+					};
+				};
+			};
+			buildConfigurationList = B447C61A21F40ED9002F2608 /* Build configuration list for PBXProject "BlockusApp" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B447C61621F40ED9002F2608;
+			productRefGroup = B447C62021F40ED9002F2608 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B447C61E21F40ED9002F2608 /* BlockusApp */,
+				B447C63221F40EDB002F2608 /* BlockusAppTests */,
+				B447C63D21F40EDB002F2608 /* BlockusAppUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B447C61D21F40ED9002F2608 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B447C62D21F40EDA002F2608 /* LaunchScreen.storyboard in Resources */,
+				B447C62A21F40EDA002F2608 /* Assets.xcassets in Resources */,
+				B447C62821F40ED9002F2608 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B447C63121F40EDB002F2608 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B447C63C21F40EDB002F2608 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B447C61B21F40ED9002F2608 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B447C62521F40ED9002F2608 /* ViewController.swift in Sources */,
+				B447C62321F40ED9002F2608 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B447C62F21F40EDB002F2608 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B447C63821F40EDB002F2608 /* BlockusAppTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B447C63A21F40EDB002F2608 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B447C64321F40EDB002F2608 /* BlockusAppUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B447C63521F40EDB002F2608 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B447C61E21F40ED9002F2608 /* BlockusApp */;
+			targetProxy = B447C63421F40EDB002F2608 /* PBXContainerItemProxy */;
+		};
+		B447C64021F40EDB002F2608 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B447C61E21F40ED9002F2608 /* BlockusApp */;
+			targetProxy = B447C63F21F40EDB002F2608 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		B447C62621F40ED9002F2608 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B447C62721F40ED9002F2608 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		B447C62B21F40EDA002F2608 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B447C62C21F40EDA002F2608 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B447C64521F40EDB002F2608 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		B447C64621F40EDB002F2608 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B447C64821F40EDB002F2608 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4TD75KA4GE;
+				INFOPLIST_FILE = BlockusApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.schrismartin.BlockusApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B447C64921F40EDB002F2608 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4TD75KA4GE;
+				INFOPLIST_FILE = BlockusApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.schrismartin.BlockusApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		B447C64B21F40EDB002F2608 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = BlockusAppTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.schrismartin.BlockusAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BlockusApp.app/BlockusApp";
+			};
+			name = Debug;
+		};
+		B447C64C21F40EDB002F2608 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = BlockusAppTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.schrismartin.BlockusAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BlockusApp.app/BlockusApp";
+			};
+			name = Release;
+		};
+		B447C64E21F40EDB002F2608 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = BlockusAppUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.schrismartin.BlockusAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = BlockusApp;
+			};
+			name = Debug;
+		};
+		B447C64F21F40EDB002F2608 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = BlockusAppUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.schrismartin.BlockusAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = BlockusApp;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B447C61A21F40ED9002F2608 /* Build configuration list for PBXProject "BlockusApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B447C64521F40EDB002F2608 /* Debug */,
+				B447C64621F40EDB002F2608 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B447C64721F40EDB002F2608 /* Build configuration list for PBXNativeTarget "BlockusApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B447C64821F40EDB002F2608 /* Debug */,
+				B447C64921F40EDB002F2608 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B447C64A21F40EDB002F2608 /* Build configuration list for PBXNativeTarget "BlockusAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B447C64B21F40EDB002F2608 /* Debug */,
+				B447C64C21F40EDB002F2608 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B447C64D21F40EDB002F2608 /* Build configuration list for PBXNativeTarget "BlockusAppUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B447C64E21F40EDB002F2608 /* Debug */,
+				B447C64F21F40EDB002F2608 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B447C61721F40ED9002F2608 /* Project object */;
+}

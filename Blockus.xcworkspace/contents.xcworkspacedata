@@ -7,4 +7,7 @@
    <FileRef
       location = "container:Blockus.xcodeproj">
    </FileRef>
+   <FileRef
+      location = "group:BlockusApp/BlockusApp.xcodeproj">
+   </FileRef>
 </Workspace>
