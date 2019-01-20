@@ -23,7 +23,16 @@ class CoordinatesTests: XCTestCase {
         ("testAvailableMoveCalculation", testAvailableMoveCalculation),
     ]
     
-    let base = PieceConfiguration(string:
+    struct MockPiece: PieceConfigurationRepresentable {
+        
+        let stringValue: String
+        
+        init(string: String) {
+            self.stringValue = string
+        }
+    }
+    
+    let base = MockPiece(string:
         """
          XXX
           X
@@ -53,7 +62,7 @@ class CoordinatesTests: XCTestCase {
     
     func testQuarterRotationClockwise() {
         
-        let expected = PieceConfiguration(string:
+        let expected = MockPiece(string:
             """
             X X
             XXX
@@ -66,7 +75,7 @@ class CoordinatesTests: XCTestCase {
     
     func testQuarterRotationCounterClockwise() {
         
-        let expected = PieceConfiguration(string:
+        let expected = MockPiece(string:
             """
             X
             XXX
@@ -79,7 +88,7 @@ class CoordinatesTests: XCTestCase {
     
     func testHalfRotation() {
         
-        let expected = PieceConfiguration(string:
+        let expected = MockPiece(string:
             """
              XX
              X
@@ -92,7 +101,7 @@ class CoordinatesTests: XCTestCase {
     
     func testVerticalMirror() {
         
-        let expected = PieceConfiguration(string:
+        let expected = MockPiece(string:
             """
             XX
              X
@@ -105,7 +114,7 @@ class CoordinatesTests: XCTestCase {
     
     func testHorizontalMirror() {
         
-        let expected = PieceConfiguration(string:
+        let expected = MockPiece(string:
             """
             XXX
              X
@@ -147,7 +156,7 @@ class CoordinatesTests: XCTestCase {
     
     func testApplicationOfTransforms() {
         
-        let transforms = TransformCollection
+        let transforms = TransformCollection()
             .mirrored(on: .horizontal)
             .rotated(amount: .full)
             .mirrored(on: .horizontal)

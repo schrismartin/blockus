@@ -8,6 +8,29 @@
 
 import Foundation
 
+protocol PieceConfigurationRepresentable {
+    
+    var stringValue: String { get }
+    var coordinates: Coordinates { get }
+}
+
+extension PieceConfigurationRepresentable {
+    
+    var coordinates: Coordinates {
+        
+        var coordinates = Coordinates()
+        
+        for (y, line) in stringValue.split(separator: "\n").enumerated() {
+            for (x, tile) in line.enumerated() where tile != " " {
+                let coord = Coordinate(x: x, y: y)
+                coordinates.insert(coord)
+            }
+        }
+        
+        return normalize(coordinates)
+    }
+}
+
 public enum PieceConfiguration: String, CaseIterable {
     
     case one = "X"
@@ -31,20 +54,13 @@ public enum PieceConfiguration: String, CaseIterable {
     case awkward = " XX\nXX\n X"
     case plus = " X \nXXX\n X "
     case mummy = " X\nXXXX"
-    
-    var coordinates: Coordinates {
-        
-        var coordinates = Coordinates()
-        
-        for (y, line) in rawValue.split(separator: "\n").enumerated() {
-            for (x, tile) in line.enumerated() where tile != " " {
-                let coord = Coordinate(x: x, y: y)
-                coordinates.insert(coord)
-            }
-        }
-        
-        return normalize(coordinates)
-    }
 }
 
 extension PieceConfiguration: Hashable { }
+
+extension PieceConfiguration: PieceConfigurationRepresentable {
+    
+    var stringValue: String {
+        return rawValue
+    }
+}

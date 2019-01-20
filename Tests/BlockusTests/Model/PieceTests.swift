@@ -13,12 +13,11 @@ class PieceTests: XCTestCase {
     static let allTests = [
         ("testInitUsingConfig", testInitUsingConfig),
         ("testInitUsingCoordinates", testInitUsingCoordinates),
-        ("testRandomPiece", testRandomPiece),
     ]
 
     func testInitUsingConfig() {
         
-        let config = PieceConfiguration(string: "XXX")
+        let config = PieceConfiguration.three
         let piece = Piece(config: config, color: .blue)
         XCTAssertEqual(piece.coordinates, config.coordinates)
         XCTAssertEqual(piece.numberOfPieces, 3)
@@ -31,29 +30,14 @@ class PieceTests: XCTestCase {
         let coordinates: Coordinates = [
             Coordinate(x: 0, y: 0),
             Coordinate(x: 1, y: 0),
-            Coordinate(x: 0, y: 1)
+            Coordinate(x: 1, y: 1)
         ]
         
-        let piece = Piece(coordinates: coordinates, color: .green)
+        let piece = Piece(config: .corner, color: .green)
         
         XCTAssertEqual(piece.coordinates, coordinates)
         XCTAssertEqual(piece.numberOfPieces, 3)
         XCTAssertEqual(piece.size, Size(width: 2, height: 2))
         XCTAssertEqual(piece.color, .green)
-    }
-    
-    func testRandomPiece() {
-        
-        for size in 0 ..< 100 {
-            let piece = Piece.random(
-                of: Size(width: size, height: size),
-                numberOfPieces: size,
-                color: .blue
-            )
-            
-            XCTAssertLessThanOrEqual(piece.size.area, Size(width: size + 1, height: size + 1).area)
-            XCTAssertLessThanOrEqual(piece.numberOfPieces, size)
-            XCTAssertEqual(piece.color, .blue)
-        }
     }
 }
