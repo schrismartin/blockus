@@ -71,6 +71,14 @@ public struct Game: Settable {
         )
     }
     
+    public func playingTurn(turnHandler: (Turn<Ready>) throws -> Turn<Finished>) throws -> Game {
+        
+        let color = currentPlayerTurn
+        let turn = try play(as: color)
+        let completedTurn = try turnHandler(turn)
+        return commit(turn: completedTurn)
+    }
+    
     public func commit(turn: Turn<Finished>) -> Game {
         
         return setting(path: \.board, to: turn.board)

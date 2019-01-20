@@ -22,4 +22,32 @@ game = try game.commit(turn:
     game.play(as: .blue).placing(piece: .bigL, at: .zero)
 )
 
-boardView.auxilaryCoordinates = boardView.board.availableMoves(for: .blue)
+game = try game.playingTurn { turn in
+    try turn.placing(
+        piece: .bigL,
+        at: Coordinate(x: 17, y: 0),
+        transforms: TransformCollection()
+            .mirrored(on: .horizontal)
+    )
+}
+
+game = try game.playingTurn { turn in
+    try turn.placing(
+        piece: .bigL,
+        at: Coordinate(x: 17, y: 17),
+        transforms: TransformCollection()
+            .mirrored(on: .horizontal)
+            .mirrored(on: .vertical)
+    )
+}
+
+game = try game.playingTurn { turn in
+    try turn.placing(
+        piece: .bigL,
+        at: Coordinate(x: 0, y: 17),
+        transforms: TransformCollection()
+            .mirrored(on: .horizontal)
+    )
+}
+
+boardView.auxilaryCoordinates = boardView.board.availableMoves
