@@ -13,6 +13,26 @@ public struct Size: Equatable {
     public var width: Int
     public var height: Int
     
+    public var maxDimension: Int {
+        return max(height, width)
+    }
+    
+    public var minDimension: Int {
+        return min(height, width)
+    }
+    
+    public var aspectRatio: Double {
+        return Double(height) / Double(width)
+    }
+    
+    public var isPortrait: Bool {
+        return height > width
+    }
+    
+    public var isLandscape: Bool {
+        return width > height
+    }
+    
     public var area: Int {
         return width * height
     }

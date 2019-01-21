@@ -7,11 +7,9 @@
 
 import Foundation
 
-public protocol GameBoardView: class {
+public protocol TileCollectionDrawable: class {
     
-    var board: Board { get set }
-    
-    func refresh()
+    func drawTiles(in: TileCollection)
 }
 
 public struct Game: Settable {
@@ -20,19 +18,18 @@ public struct Game: Settable {
         didSet { view.flatMap(setUp) }
     }
     
-    public var view: GameBoardView? {
+    public var view: TileCollectionDrawable? {
         didSet { view.flatMap(setUp) }
     }
     
-    public init(board: Board) {
+    public init(board: Board = Board()) {
         
         self.board = board
     }
     
-    func setUp(view: GameBoardView) {
+    func setUp(view: TileCollectionDrawable) {
         
-        view.board = board
-        view.refresh()
+        view.drawTiles(in: board)
     }
     
     static let turnOrder: [Color] = [

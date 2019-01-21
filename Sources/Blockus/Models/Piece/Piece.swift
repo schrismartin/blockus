@@ -15,7 +15,7 @@ public struct Piece {
     public let numberOfPieces: Int
     public let color: Color
     
-    var coordinates: Coordinates {
+    public var coordinates: Coordinates {
         return config.coordinates
     }
     
@@ -27,6 +27,13 @@ public struct Piece {
         let coords = config.coordinates
         self.size = Size(from: coords)
         self.numberOfPieces = coords.count
+    }
+}
+
+extension Piece: TileCollection {
+    
+    public func tile(at coordinate: Coordinate) -> Color? {
+        return coordinates.contains(coordinate) ? color : nil
     }
 }
 
