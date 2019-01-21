@@ -14,6 +14,24 @@ public enum Rotation {
     case threeQuarters
     case full
     
+    var clockwise: Rotation {
+        switch self {
+        case .full: return .quarter
+        case .quarter: return .half
+        case .half: return .threeQuarters
+        case .threeQuarters: return .full
+        }
+    }
+    
+    var counterClockwise: Rotation {
+        switch self {
+        case .full: return .threeQuarters
+        case .threeQuarters: return .half
+        case .half: return .quarter
+        case .quarter: return .full
+        }
+    }
+    
     var angle: Double {
         
         switch self {

@@ -8,6 +8,11 @@
 
 import Foundation
 
+public protocol TileCollection: CoordinateContainer {
+    
+    func tile(at coordinate: Coordinate) -> Color?
+}
+
 public struct Board {
     
     public let size: Size
@@ -21,11 +26,6 @@ public struct Board {
         self.pieces = []
     }
     
-    public func tile(at coordinate: Coordinate) -> Color? {
-        
-        return tiles[coordinate]
-    }
-    
     public func startingPoint(for color: Color) -> Coordinate {
         
         switch color {
@@ -34,6 +34,14 @@ public struct Board {
         case .red: return size.bottomLeft
         case .green: return size.bottomRight
         }
+    }
+}
+
+extension Board: TileCollection {
+    
+    public func tile(at coordinate: Coordinate) -> Color? {
+        
+        return tiles[coordinate]
     }
 }
 

@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PieceEditViewController" customModule="BlockusApp" customModuleProvider="target">
+            <connections>
+                <outlet property="flipHorizontalButton" destination="t9U-C6-cwd" id="Bu6-pM-ioL"/>
+                <outlet property="flipVerticalButton" destination="NoI-ip-i4c" id="jBn-r7-Uwb"/>
+                <outlet property="pieceView" destination="4ii-MF-T01" id="mSz-aE-oRe"/>
+                <outlet property="rotateClockwiseButton" destination="493-HP-i3x" id="6eT-w6-Z2X"/>
+                <outlet property="rotateCounterClockwiseButton" destination="cDa-No-VDU" id="26h-98-JA1"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="179"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7sR-eO-Srg">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="179"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="iir-AS-2Pf">
+                            <rect key="frame" x="0.0" y="0.0" width="98" height="179"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t6m-3x-Hji">
+                                    <rect key="frame" x="0.0" y="0.0" width="98" height="84.5"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="493-HP-i3x">
+                                            <rect key="frame" x="29" y="22.5" width="40" height="40"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="40" id="TAC-ZE-hth"/>
+                                                <constraint firstAttribute="width" constant="40" id="lDs-it-6bn"/>
+                                            </constraints>
+                                            <state key="normal" image="rotate-clockwise"/>
+                                            <connections>
+                                                <action selector="rotateClockwiseButtonPressed:" destination="-1" eventType="touchUpInside" id="ceF-3a-PX7"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstItem="493-HP-i3x" firstAttribute="centerX" secondItem="t6m-3x-Hji" secondAttribute="centerX" id="9aw-dg-7j5"/>
+                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="493-HP-i3x" secondAttribute="trailing" constant="10" id="C18-Ll-5HJ"/>
+                                        <constraint firstItem="493-HP-i3x" firstAttribute="centerY" secondItem="t6m-3x-Hji" secondAttribute="centerY" id="KkP-G3-MJQ"/>
+                                        <constraint firstItem="493-HP-i3x" firstAttribute="top" relation="greaterThanOrEqual" secondItem="t6m-3x-Hji" secondAttribute="top" constant="10" id="YFz-JL-IDg"/>
+                                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="493-HP-i3x" secondAttribute="bottom" constant="10" id="igB-66-5rI"/>
+                                        <constraint firstItem="493-HP-i3x" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="t6m-3x-Hji" secondAttribute="leading" constant="10" id="of0-0n-g5P"/>
+                                    </constraints>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8FZ-0n-WOb">
+                                    <rect key="frame" x="0.0" y="94.5" width="98" height="84.5"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cDa-No-VDU">
+                                            <rect key="frame" x="29" y="22.5" width="40" height="40"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="40" id="ZTp-Y2-eay"/>
+                                                <constraint firstAttribute="width" constant="40" id="ekR-yd-FKa"/>
+                                            </constraints>
+                                            <state key="normal" image="rotate-counter-clockwise"/>
+                                            <connections>
+                                                <action selector="rotateCounterClockwiseButtonPressed:" destination="-1" eventType="touchUpInside" id="c4R-ef-ZdZ"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="cDa-No-VDU" secondAttribute="bottom" constant="10" id="7Qm-07-zjp"/>
+                                        <constraint firstItem="cDa-No-VDU" firstAttribute="centerY" secondItem="8FZ-0n-WOb" secondAttribute="centerY" id="Bb8-1j-cLo"/>
+                                        <constraint firstItem="cDa-No-VDU" firstAttribute="top" relation="greaterThanOrEqual" secondItem="8FZ-0n-WOb" secondAttribute="top" constant="10" id="Lrp-i8-psy"/>
+                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="cDa-No-VDU" secondAttribute="trailing" constant="10" id="fN5-ka-l69"/>
+                                        <constraint firstItem="cDa-No-VDU" firstAttribute="centerX" secondItem="8FZ-0n-WOb" secondAttribute="centerX" id="kh3-Mb-WZq"/>
+                                        <constraint firstItem="cDa-No-VDU" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8FZ-0n-WOb" secondAttribute="leading" constant="10" id="llQ-wf-4yb"/>
+                                    </constraints>
+                                </view>
+                            </subviews>
+                        </stackView>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vB2-Ea-akp">
+                            <rect key="frame" x="98" y="0.0" width="179" height="179"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4ii-MF-T01" customClass="TileCollectionView" customModule="BlockusApp" customModuleProvider="target">
+                                    <rect key="frame" x="10" y="10" width="159" height="159"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </view>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="4ii-MF-T01" firstAttribute="leading" secondItem="vB2-Ea-akp" secondAttribute="leading" constant="10" id="Hux-rh-283"/>
+                                <constraint firstAttribute="width" secondItem="vB2-Ea-akp" secondAttribute="height" multiplier="1:1" id="bqg-eW-cZ3"/>
+                                <constraint firstItem="4ii-MF-T01" firstAttribute="centerX" secondItem="vB2-Ea-akp" secondAttribute="centerX" id="h3m-N7-GJN"/>
+                                <constraint firstAttribute="bottom" secondItem="4ii-MF-T01" secondAttribute="bottom" constant="10" id="mfz-hj-MPA"/>
+                                <constraint firstAttribute="trailing" secondItem="4ii-MF-T01" secondAttribute="trailing" constant="10" id="qWj-Jx-DOh"/>
+                                <constraint firstItem="4ii-MF-T01" firstAttribute="centerY" secondItem="vB2-Ea-akp" secondAttribute="centerY" id="yJ7-4Q-cXF"/>
+                                <constraint firstItem="4ii-MF-T01" firstAttribute="top" secondItem="vB2-Ea-akp" secondAttribute="top" constant="10" id="yPO-Ld-kDi"/>
+                            </constraints>
+                        </view>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="geN-Kc-jYZ">
+                            <rect key="frame" x="277" y="0.0" width="98" height="179"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yNI-pE-uq6">
+                                    <rect key="frame" x="0.0" y="0.0" width="98" height="89.5"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t9U-C6-cwd">
+                                            <rect key="frame" x="29" y="25" width="40" height="40"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="40" id="Bbe-RT-NW8"/>
+                                                <constraint firstAttribute="height" constant="40" id="U6o-cc-lvu"/>
+                                            </constraints>
+                                            <state key="normal" image="vertical-flip"/>
+                                            <connections>
+                                                <action selector="flipHorizontalButtonPressed:" destination="-1" eventType="touchUpInside" id="CgG-kf-loH"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstItem="t9U-C6-cwd" firstAttribute="centerY" secondItem="yNI-pE-uq6" secondAttribute="centerY" id="AJu-P0-aea"/>
+                                        <constraint firstItem="t9U-C6-cwd" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="yNI-pE-uq6" secondAttribute="leading" constant="10" id="CxF-9n-pFd"/>
+                                        <constraint firstItem="t9U-C6-cwd" firstAttribute="centerX" secondItem="yNI-pE-uq6" secondAttribute="centerX" id="MYQ-MA-EBF"/>
+                                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="t9U-C6-cwd" secondAttribute="bottom" constant="10" id="UFi-Uu-Fhf"/>
+                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="t9U-C6-cwd" secondAttribute="trailing" constant="10" id="cM0-0A-Nvu"/>
+                                        <constraint firstItem="t9U-C6-cwd" firstAttribute="top" relation="greaterThanOrEqual" secondItem="yNI-pE-uq6" secondAttribute="top" constant="10" id="sfo-cs-OmL"/>
+                                    </constraints>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xvB-Ix-dqC">
+                                    <rect key="frame" x="0.0" y="89.5" width="98" height="89.5"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NoI-ip-i4c">
+                                            <rect key="frame" x="29" y="25" width="40" height="40"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="40" id="6aF-sv-jhw"/>
+                                                <constraint firstAttribute="width" constant="40" id="gBy-bL-JjB"/>
+                                            </constraints>
+                                            <state key="normal" image="horizontal-flip"/>
+                                            <connections>
+                                                <action selector="flipVerticalButtonPressed:" destination="-1" eventType="touchUpInside" id="trR-cg-EId"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="NoI-ip-i4c" secondAttribute="bottom" constant="10" id="7mi-RU-yZ3"/>
+                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="NoI-ip-i4c" secondAttribute="trailing" constant="10" id="Oil-NN-FT5"/>
+                                        <constraint firstItem="NoI-ip-i4c" firstAttribute="top" relation="greaterThanOrEqual" secondItem="xvB-Ix-dqC" secondAttribute="top" constant="10" id="TnV-GI-P6Y"/>
+                                        <constraint firstItem="NoI-ip-i4c" firstAttribute="centerX" secondItem="xvB-Ix-dqC" secondAttribute="centerX" id="Z1o-xa-Zz6"/>
+                                        <constraint firstItem="NoI-ip-i4c" firstAttribute="centerY" secondItem="xvB-Ix-dqC" secondAttribute="centerY" id="nCU-Wk-UFA"/>
+                                        <constraint firstItem="NoI-ip-i4c" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="xvB-Ix-dqC" secondAttribute="leading" constant="10" id="rlN-wV-sOb"/>
+                                    </constraints>
+                                </view>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="geN-Kc-jYZ" firstAttribute="width" secondItem="iir-AS-2Pf" secondAttribute="width" id="q5z-0i-iYE"/>
+                    </constraints>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="7sR-eO-Srg" secondAttribute="trailing" id="Wj4-tw-HVa"/>
+                <constraint firstItem="7sR-eO-Srg" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="ZDc-8A-jKl"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="7sR-eO-Srg" secondAttribute="bottom" id="eyw-vC-ZWn"/>
+                <constraint firstItem="7sR-eO-Srg" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="iOR-DU-x9D"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="138.40000000000001" y="-66.11694152923539"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="horizontal-flip" width="75" height="75"/>
+        <image name="rotate-clockwise" width="75" height="75"/>
+        <image name="rotate-counter-clockwise" width="75" height="75"/>
+        <image name="vertical-flip" width="75" height="75"/>
+    </resources>
+</document>
