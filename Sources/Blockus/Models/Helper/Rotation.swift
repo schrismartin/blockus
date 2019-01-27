@@ -8,41 +8,29 @@
 
 import Foundation
 
-public enum Rotation {
-    case quarter
-    case half
-    case threeQuarters
-    case full
+public struct Rotation: Equatable, Settable {
+    
+    var quadrants: Int {
+        didSet { quadrants = quadrants % 4 }
+    }
     
     var clockwise: Rotation {
-        switch self {
-        case .full: return .quarter
-        case .quarter: return .half
-        case .half: return .threeQuarters
-        case .threeQuarters: return .full
-        }
+        return setting(path: \.quadrants) { prev in (prev + 1) % 4 }
     }
     
     var counterClockwise: Rotation {
-        switch self {
-        case .full: return .threeQuarters
-        case .threeQuarters: return .half
-        case .half: return .quarter
-        case .quarter: return .full
-        }
+        return setting(path: \.quadrants) { prev in (prev + 3) % 4 }
     }
     
     var angle: Double {
-        
-        switch self {
-        case .full:
-            return 0
-        case .quarter:
-            return .pi / 2
-        case .half:
-            return .pi
-        case .threeQuarters:
-            return (.pi * 3) / 2
-        }
+        return (Double(quadrants) * .pi) / 2
     }
+}
+
+extension Rotation {
+    
+    public static let full = Rotation(quadrants: 0)
+    public static let quarter = Rotation(quadrants: 1)
+    public static let half = Rotation(quadrants: 2)
+    public static let threeQuarters = Rotation(quadrants: 3)
 }

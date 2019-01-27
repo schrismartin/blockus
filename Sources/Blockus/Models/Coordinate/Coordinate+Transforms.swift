@@ -46,6 +46,8 @@ extension Coordinate {
             
         case .full:
             return self
+        default:
+            fatalError("Invalid rotation \(amount) provided to rotation function.")
         }
     }
 }

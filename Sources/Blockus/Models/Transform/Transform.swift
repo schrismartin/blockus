@@ -7,7 +7,7 @@
 
 import Foundation
 
-public enum Transform {
+public enum Transform: Equatable {
     
     case normalized
     case offset(by: Coordinate)
