@@ -21,6 +21,7 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		B430CC9021F64D26002073CB /* TransformCollectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B447C67221F64C09002F2608 /* TransformCollectionTests.swift */; };
 		OBJ_106 /* CoordinateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_43 /* CoordinateTests.swift */; };
 		OBJ_107 /* CoordinatesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_44 /* CoordinatesTests.swift */; };
 		OBJ_108 /* DegreeAmountTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_45 /* DegreeAmountTests.swift */; };
@@ -31,7 +32,6 @@
 		OBJ_113 /* IntConvenienceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_52 /* IntConvenienceTests.swift */; };
 		OBJ_114 /* SetConvenienceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_53 /* SetConvenienceTests.swift */; };
 		OBJ_115 /* SettableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_54 /* SettableTests.swift */; };
-		OBJ_116 /* XCTestManifests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_55 /* XCTestManifests.swift */; };
 		OBJ_118 /* Blockus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "Blockus::Blockus::Product" /* Blockus.framework */; };
 		OBJ_65 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* Board.swift */; };
 		OBJ_66 /* Coordinate+CollectionTransforms.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* Coordinate+CollectionTransforms.swift */; };
@@ -78,6 +78,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B447C67221F64C09002F2608 /* TransformCollectionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransformCollectionTests.swift; sourceTree = "<group>"; };
 		"Blockus::Blockus::Product" /* Blockus.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Blockus.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Blockus::BlockusTests::Product" /* BlockusTests.xctest */ = {isa = PBXFileReference; lastKnownFileType = file; path = BlockusTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_10 /* Board.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
@@ -230,6 +231,7 @@
 				OBJ_46 /* PieceConfigurationTests.swift */,
 				OBJ_47 /* PieceTests.swift */,
 				OBJ_48 /* SizeTests.swift */,
+				B447C67221F64C09002F2608 /* TransformCollectionTests.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -244,7 +246,7 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
-		OBJ_5 /*  */ = {
+		OBJ_5 = {
 			isa = PBXGroup;
 			children = (
 				OBJ_6 /* Package.swift */,
@@ -252,7 +254,6 @@
 				OBJ_40 /* Tests */,
 				OBJ_57 /* Products */,
 			);
-			name = "";
 			sourceTree = "<group>";
 		};
 		OBJ_51 /* Extensions */ = {
@@ -369,7 +370,7 @@
 			knownRegions = (
 				en,
 			);
-			mainGroup = OBJ_5 /*  */;
+			mainGroup = OBJ_5;
 			productRefGroup = OBJ_57 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -387,6 +388,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
+				B430CC9021F64D26002073CB /* TransformCollectionTests.swift in Sources */,
 				OBJ_106 /* CoordinateTests.swift in Sources */,
 				OBJ_107 /* CoordinatesTests.swift in Sources */,
 				OBJ_108 /* DegreeAmountTests.swift in Sources */,
@@ -397,7 +399,6 @@
 				OBJ_113 /* IntConvenienceTests.swift in Sources */,
 				OBJ_114 /* SetConvenienceTests.swift in Sources */,
 				OBJ_115 /* SettableTests.swift in Sources */,
-				OBJ_116 /* XCTestManifests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

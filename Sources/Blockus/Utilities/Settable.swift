@@ -22,6 +22,13 @@ extension Settable {
         
         return setting(path: keyPath, to: try modification(self[keyPath: keyPath]))
     }
+    
+    public func setting<Value>(path keyPath: WritableKeyPath<Self, Value>, using modification: (inout Value) throws -> Void) rethrows -> Self {
+        
+        var mutableSelf = self
+        try modification(&mutableSelf[keyPath: keyPath])
+        return mutableSelf
+    }
 }
 
 extension Set: Settable { }
