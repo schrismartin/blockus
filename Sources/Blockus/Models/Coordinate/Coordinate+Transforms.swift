@@ -33,12 +33,10 @@ extension Coordinate {
         switch amount {
         case .quarter, .threeQuarters:
             
-            let theta = amount.angle
-            
-            let x = (cos(theta) * Double(self.x - origin.x) - sin(theta) * Double(self.y - origin.y) + Double(origin.x))
-            let y = (sin(theta) * Double(self.x - origin.x) - cos(theta) * Double(self.y - origin.y) + Double(origin.y))
-            
-            return Coordinate(x: Int(round(x)), y: Int(round(y)))
+            return Coordinate(
+                x: Int(solve(for: .horizontal, origin: origin, theta: amount.angle)),
+                y: Int(solve(for: .vertical, origin: origin, theta: amount.angle))
+            )
             
         case .half:
             let quarter = rotated(by: .quarter, about: origin)
@@ -49,5 +47,25 @@ extension Coordinate {
         default:
             fatalError("Invalid rotation \(amount) provided to rotation function.")
         }
+    }
+    
+    private func solve(for axis: Axis, origin: Coordinate, theta: Double) -> Double {
+        let solver: (x: (Double) -> Double, y: (Double) -> Double)
+        let offset: Double
+        
+        switch axis {
+        case .horizontal:
+            solver = (cos, sin)
+            offset = Double(origin.x)
+        case .vertical:
+            solver = (sin, cos)
+            offset = Double(origin.y)
+        }
+        
+        return round(
+            solver.x(theta) * Double(self.x - origin.x) -
+            solver.y(theta) * Double(self.y - origin.y) +
+            offset
+        )
     }
 }
