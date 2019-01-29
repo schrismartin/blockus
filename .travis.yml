@@ -1,12 +1,16 @@
 os: osx
 osx_image: xcode10.1
 language: swift
-
 before_script:
-  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-darwin-amd64 > ./cc-test-reporter
-  - chmod +x ./cc-test-reporter
-  - ./cc-test-reporter before-build
+- bundle install
+- curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-darwin-amd64 > ./cc-test-reporter
+- chmod +x ./cc-test-reporter
+- "./cc-test-reporter before-build"
 script:
-  - swift test
+- xcodebuild test -scheme Blockus-Package -enableCodeCoverage YES | bundle exec xcpretty
+- bundle exec slather coverage
 after_script:
-  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
+- "./cc-test-reporter after-build -t cobertura --exit-code $TRAVIS_TEST_RESULT"
+env:
+  matrix:
+    secure: wK0X/ctJPcb4T7gqpfm5sVvPIb0lxvB6Qw2yx5i2W4S3gkPO5pfu+NUZn4UPOMLw0/mTPu/2zANk5pdHgH3To4rQ3wJiGK9DxCD+tDLJlvy51vsU3u9zcMRBEJsaooPezKePrVpTp4prLvtb7DgOJByoy3z/EfKmouGZrfkz82PMxKUB5cum/Riy+UXcTuYVl/1HOfA7Cl6167HXD1DF9AmK8gTUoy9Lsrr41v92I2B3AtOAxTOjz8ojSV4215N5aXlAV6fYRYORzI09DD4lmlMVFmEUtS827IFp6V/fQVYzKIW1niNDlyE8o0RY8K2PT06TWn4Od9A2LE/ypBxrUpbzs7eHCItJycg21VsHsSnhwzQv+72GwMzepYo2M6rtKeIwKLaf9Fz7/xjEnZHlVXpLj3Y6xf2TQB3HwygbigR6BhZT8dZp9x8r79hVHKsIWTml5JOe2X7WzZPegKvaX9OOfsQi4jTcJqEMGhzeQZARtXKWff+O8gJ2ROkTBl+TN9JqDrUBSs/tPck1zMcb/nN0gepYVphEU4kmTfb0X9i4SUqeSvwG4i1Q7IFX1g2dxDvnqi/L6WYsS1dKnw2WijLY43QsWiW06+TtOWtsDNJpeLcgCgJovpcHNu0whjtLOr1mQjFtdF9q56QecndoL8KUVLc8kV42EIky3fx+KLM=
